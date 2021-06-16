@@ -18,7 +18,7 @@ namespace Ref
         static void TangSo(ref int num)
         {
             num++;
-            // parameter se duoc su dung truc tiep chu khong 
+            // parameter se duoc su dung truc tiep chu khong tao ra mot ban copy
             
         }
     }
