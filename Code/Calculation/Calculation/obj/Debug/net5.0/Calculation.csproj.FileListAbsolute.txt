@@ -1,0 +1,16 @@
+D:\maico\ntk_repository\Code\Calculation\Calculation\bin\Debug\net5.0\Calculation.exe
+D:\maico\ntk_repository\Code\Calculation\Calculation\bin\Debug\net5.0\Calculation.deps.json
+D:\maico\ntk_repository\Code\Calculation\Calculation\bin\Debug\net5.0\Calculation.runtimeconfig.json
+D:\maico\ntk_repository\Code\Calculation\Calculation\bin\Debug\net5.0\Calculation.runtimeconfig.dev.json
+D:\maico\ntk_repository\Code\Calculation\Calculation\bin\Debug\net5.0\Calculation.dll
+D:\maico\ntk_repository\Code\Calculation\Calculation\bin\Debug\net5.0\ref\Calculation.dll
+D:\maico\ntk_repository\Code\Calculation\Calculation\bin\Debug\net5.0\Calculation.pdb
+D:\maico\ntk_repository\Code\Calculation\Calculation\obj\Debug\net5.0\Calculation.csproj.AssemblyReference.cache
+D:\maico\ntk_repository\Code\Calculation\Calculation\obj\Debug\net5.0\Calculation.GeneratedMSBuildEditorConfig.editorconfig
+D:\maico\ntk_repository\Code\Calculation\Calculation\obj\Debug\net5.0\Calculation.AssemblyInfoInputs.cache
+D:\maico\ntk_repository\Code\Calculation\Calculation\obj\Debug\net5.0\Calculation.AssemblyInfo.cs
+D:\maico\ntk_repository\Code\Calculation\Calculation\obj\Debug\net5.0\Calculation.csproj.CoreCompileInputs.cache
+D:\maico\ntk_repository\Code\Calculation\Calculation\obj\Debug\net5.0\Calculation.dll
+D:\maico\ntk_repository\Code\Calculation\Calculation\obj\Debug\net5.0\ref\Calculation.dll
+D:\maico\ntk_repository\Code\Calculation\Calculation\obj\Debug\net5.0\Calculation.pdb
+D:\maico\ntk_repository\Code\Calculation\Calculation\obj\Debug\net5.0\Calculation.genruntimeconfig.cache

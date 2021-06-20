@@ -1,0 +1,15 @@
+D:\maico\ntk_repository\Code\ThamTri\ThamTri\bin\Debug\net5.0\ThamTri.exe
+D:\maico\ntk_repository\Code\ThamTri\ThamTri\bin\Debug\net5.0\ThamTri.deps.json
+D:\maico\ntk_repository\Code\ThamTri\ThamTri\bin\Debug\net5.0\ThamTri.runtimeconfig.json
+D:\maico\ntk_repository\Code\ThamTri\ThamTri\bin\Debug\net5.0\ThamTri.runtimeconfig.dev.json
+D:\maico\ntk_repository\Code\ThamTri\ThamTri\bin\Debug\net5.0\ThamTri.dll
+D:\maico\ntk_repository\Code\ThamTri\ThamTri\bin\Debug\net5.0\ref\ThamTri.dll
+D:\maico\ntk_repository\Code\ThamTri\ThamTri\bin\Debug\net5.0\ThamTri.pdb
+D:\maico\ntk_repository\Code\ThamTri\ThamTri\obj\Debug\net5.0\ThamTri.GeneratedMSBuildEditorConfig.editorconfig
+D:\maico\ntk_repository\Code\ThamTri\ThamTri\obj\Debug\net5.0\ThamTri.AssemblyInfoInputs.cache
+D:\maico\ntk_repository\Code\ThamTri\ThamTri\obj\Debug\net5.0\ThamTri.AssemblyInfo.cs
+D:\maico\ntk_repository\Code\ThamTri\ThamTri\obj\Debug\net5.0\ThamTri.csproj.CoreCompileInputs.cache
+D:\maico\ntk_repository\Code\ThamTri\ThamTri\obj\Debug\net5.0\ThamTri.dll
+D:\maico\ntk_repository\Code\ThamTri\ThamTri\obj\Debug\net5.0\ref\ThamTri.dll
+D:\maico\ntk_repository\Code\ThamTri\ThamTri\obj\Debug\net5.0\ThamTri.pdb
+D:\maico\ntk_repository\Code\ThamTri\ThamTri\obj\Debug\net5.0\ThamTri.genruntimeconfig.cache
