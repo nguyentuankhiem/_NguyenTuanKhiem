@@ -1,0 +1,15 @@
+D:\maico\ntk_repo\C#NangCao\SameLinQMethod\SameLinQMethod\bin\Debug\net5.0\SameLinQMethod.exe
+D:\maico\ntk_repo\C#NangCao\SameLinQMethod\SameLinQMethod\bin\Debug\net5.0\SameLinQMethod.deps.json
+D:\maico\ntk_repo\C#NangCao\SameLinQMethod\SameLinQMethod\bin\Debug\net5.0\SameLinQMethod.runtimeconfig.json
+D:\maico\ntk_repo\C#NangCao\SameLinQMethod\SameLinQMethod\bin\Debug\net5.0\SameLinQMethod.runtimeconfig.dev.json
+D:\maico\ntk_repo\C#NangCao\SameLinQMethod\SameLinQMethod\bin\Debug\net5.0\SameLinQMethod.dll
+D:\maico\ntk_repo\C#NangCao\SameLinQMethod\SameLinQMethod\bin\Debug\net5.0\ref\SameLinQMethod.dll
+D:\maico\ntk_repo\C#NangCao\SameLinQMethod\SameLinQMethod\bin\Debug\net5.0\SameLinQMethod.pdb
+D:\maico\ntk_repo\C#NangCao\SameLinQMethod\SameLinQMethod\obj\Debug\net5.0\SameLinQMethod.GeneratedMSBuildEditorConfig.editorconfig
+D:\maico\ntk_repo\C#NangCao\SameLinQMethod\SameLinQMethod\obj\Debug\net5.0\SameLinQMethod.AssemblyInfoInputs.cache
+D:\maico\ntk_repo\C#NangCao\SameLinQMethod\SameLinQMethod\obj\Debug\net5.0\SameLinQMethod.AssemblyInfo.cs
+D:\maico\ntk_repo\C#NangCao\SameLinQMethod\SameLinQMethod\obj\Debug\net5.0\SameLinQMethod.csproj.CoreCompileInputs.cache
+D:\maico\ntk_repo\C#NangCao\SameLinQMethod\SameLinQMethod\obj\Debug\net5.0\SameLinQMethod.dll
+D:\maico\ntk_repo\C#NangCao\SameLinQMethod\SameLinQMethod\obj\Debug\net5.0\ref\SameLinQMethod.dll
+D:\maico\ntk_repo\C#NangCao\SameLinQMethod\SameLinQMethod\obj\Debug\net5.0\SameLinQMethod.pdb
+D:\maico\ntk_repo\C#NangCao\SameLinQMethod\SameLinQMethod\obj\Debug\net5.0\SameLinQMethod.genruntimeconfig.cache
