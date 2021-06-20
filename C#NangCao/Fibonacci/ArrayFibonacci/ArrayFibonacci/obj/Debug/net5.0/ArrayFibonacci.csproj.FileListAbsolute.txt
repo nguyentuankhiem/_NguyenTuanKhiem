@@ -1,0 +1,15 @@
+D:\maico\ntk_repo\C#NangCao\Fibonacci\ArrayFibonacci\ArrayFibonacci\bin\Debug\net5.0\ArrayFibonacci.exe
+D:\maico\ntk_repo\C#NangCao\Fibonacci\ArrayFibonacci\ArrayFibonacci\bin\Debug\net5.0\ArrayFibonacci.deps.json
+D:\maico\ntk_repo\C#NangCao\Fibonacci\ArrayFibonacci\ArrayFibonacci\bin\Debug\net5.0\ArrayFibonacci.runtimeconfig.json
+D:\maico\ntk_repo\C#NangCao\Fibonacci\ArrayFibonacci\ArrayFibonacci\bin\Debug\net5.0\ArrayFibonacci.runtimeconfig.dev.json
+D:\maico\ntk_repo\C#NangCao\Fibonacci\ArrayFibonacci\ArrayFibonacci\bin\Debug\net5.0\ArrayFibonacci.dll
+D:\maico\ntk_repo\C#NangCao\Fibonacci\ArrayFibonacci\ArrayFibonacci\bin\Debug\net5.0\ref\ArrayFibonacci.dll
+D:\maico\ntk_repo\C#NangCao\Fibonacci\ArrayFibonacci\ArrayFibonacci\bin\Debug\net5.0\ArrayFibonacci.pdb
+D:\maico\ntk_repo\C#NangCao\Fibonacci\ArrayFibonacci\ArrayFibonacci\obj\Debug\net5.0\ArrayFibonacci.GeneratedMSBuildEditorConfig.editorconfig
+D:\maico\ntk_repo\C#NangCao\Fibonacci\ArrayFibonacci\ArrayFibonacci\obj\Debug\net5.0\ArrayFibonacci.AssemblyInfoInputs.cache
+D:\maico\ntk_repo\C#NangCao\Fibonacci\ArrayFibonacci\ArrayFibonacci\obj\Debug\net5.0\ArrayFibonacci.AssemblyInfo.cs
+D:\maico\ntk_repo\C#NangCao\Fibonacci\ArrayFibonacci\ArrayFibonacci\obj\Debug\net5.0\ArrayFibonacci.csproj.CoreCompileInputs.cache
+D:\maico\ntk_repo\C#NangCao\Fibonacci\ArrayFibonacci\ArrayFibonacci\obj\Debug\net5.0\ArrayFibonacci.dll
+D:\maico\ntk_repo\C#NangCao\Fibonacci\ArrayFibonacci\ArrayFibonacci\obj\Debug\net5.0\ref\ArrayFibonacci.dll
+D:\maico\ntk_repo\C#NangCao\Fibonacci\ArrayFibonacci\ArrayFibonacci\obj\Debug\net5.0\ArrayFibonacci.pdb
+D:\maico\ntk_repo\C#NangCao\Fibonacci\ArrayFibonacci\ArrayFibonacci\obj\Debug\net5.0\ArrayFibonacci.genruntimeconfig.cache
