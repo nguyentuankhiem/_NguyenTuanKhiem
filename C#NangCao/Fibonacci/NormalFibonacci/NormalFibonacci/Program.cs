@@ -32,6 +32,23 @@ namespace NormalFibonacci
         static void Main(string[] args)
         {
             // cach 1
+            while(true)
+            {
+                try
+                {
+                    Console.Write("Enter a number of Fibonacci Array: ");
+                    int input = int.Parse(Console.ReadLine());
+                    for (int i = 0; i < input; i++)
+                    {
+                        Console.Write(NorFin(i) + " ");
+                    }
+                    break;
+                }
+                catch (Exception err)
+                {
+                    Console.WriteLine(err.Message);
+                }
+            }
             Console.WriteLine("First 10 numbers of Normal Fibonacci: ");
             for (int i = 0; i < 10; i++)
             {
