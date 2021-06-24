@@ -22,10 +22,23 @@ namespace RecursiveFibonacci
         static void Main(string[] args)
         {
             // cach 2
-            Console.WriteLine("First 10 numbers of Recursive Fibonacci");
-            for (int i = 0; i < 10; i++)
+            while (true)
             {
-                Console.Write($" {RecFin(i)}");
+                try
+                {
+                    Console.Write("Enter a number of fibonacci array: ");
+                    int input = int.Parse(Console.ReadLine());
+                    for (int i = 0; i < input; i++)
+                    {
+                        Console.Write(RecFin(i) + " ");
+                    }
+                    break;
+
+                }
+                catch (Exception err)
+                {
+                    Console.WriteLine(err.Message);
+                }
             }
             Console.ReadKey();
         }
