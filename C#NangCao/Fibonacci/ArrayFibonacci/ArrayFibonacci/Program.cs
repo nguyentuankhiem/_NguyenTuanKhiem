@@ -19,11 +19,23 @@ namespace ArrayFibonacci
         static void Main(string[] args)
         {
             // cach 3
-            Console.WriteLine("First 10 numbers of Array Fibonacci");
-            var ex = ArrFin(10);
-            foreach (var item in ex)
+            ưhile (true)
             {
-                Console.Write(" " + item);
+                try 
+                {
+                    Console.Write("Enter a number of fibonacci array: ");
+                    int input = int.Parse(Console.ReadLine());
+                    var arr = ArrFin(input);
+                    foreach (var item in arr)
+                    {
+                        Console.Write(item + " ");
+                    }
+                    break;
+                }
+                catch (Exception err)
+                {
+                    Console.WriteLine(err.Message);
+                }
             }
             Console.ReadKey();
         }
