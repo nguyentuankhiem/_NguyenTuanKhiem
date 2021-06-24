@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace Minesweeper
 {
@@ -53,10 +53,32 @@ namespace Minesweeper
             while (!isOver)
             {
                 Console.Clear();
-                Console.WriteLine("   MINESWEEPER");
-                Console.WriteLine("~~~~~~~~~~~~~~~~~");
+                Console.WriteLine("    MINESWEEPER");
+                Console.WriteLine("~~~~~~~~~~~~~~~~~~~");
+                // helper up row
+                Console.Write("   ");
+                for (int i = 0; i < 9; i++)
+                {
+                    if (i < 8)
+                    {
+                        Console.Write(i + " ");
+                        
+                        
+                    }
+
+                    else
+                    {
+                        Console.Write(i + "\n");
+
+                    }
+
+                    
+                }
+                
+                Console.WriteLine();
                 for (int row = 0; row < 9; row++)
                 {
+                    Console.Write(row + "| "); // helper col
                     for (int col = 0; col < 9; col++)
                     {
                         if (player[row, col] == -2)
@@ -73,32 +95,54 @@ namespace Minesweeper
                         }
                         else { Console.Write("# "); }
                     }
+                    Console.Write("|" + row + " "); // helper col
                     Console.WriteLine();
                 }
-                Console.WriteLine("So co con lai: " + flags);
+                Console.WriteLine();
+                // helper down row
+                Console.Write("   ");
+                for (int i = 0; i < 9; i++)
+                {
+                    if (i < 8)
+                    {
+                        Console.Write(i + " ");
+                    }
+                    else
+                    {
+                        Console.Write(i + "\n");
+                    }
+                }
+                Console.WriteLine("\nSo co con lai: " + flags);
                 Console.Write("F de cam co, an nut bat ky de bat dau tro choi: ");
                 string input = Console.ReadLine().ToLower();
                 if (input.Contains("f"))
                 {
                     while (!isOver)
                     {
-                        Console.Write("Cam co o hang nao (0-8): ");
-                        int rowf = int.Parse(Console.ReadLine());
-                        Console.Write("Cam co o cot nao (0-8): ");
-                        int colf = int.Parse(Console.ReadLine());
-                        if (player[rowf, colf] != -3 && player[rowf, colf] != -2 && flags > 0)
+                       try
                         {
-                            player[rowf, colf] = -2;
-                            flags--;
-                            break;
+                            Console.Write("Cam co o hang nao (0-8): ");
+                            int rowf = int.Parse(Console.ReadLine());
+                            Console.Write("Cam co o cot nao (0-8): ");
+                            int colf = int.Parse(Console.ReadLine());
+                            if (player[rowf, colf] != -3 && player[rowf, colf] != -2 && flags > 0)
+                            {
+                                player[rowf, colf] = -2;
+                                flags--;
+                                break;
+                            }
+                            else if (player[rowf, colf] == -2)
+                            {
+                                player[rowf, colf] = 0;
+                                flags++;
+                                break;
+                            }
+                            else { Console.WriteLine("O nay da duoc chon roi!"); }
                         }
-                        else if (player[rowf, colf] == -2)
+                        catch (Exception err)
                         {
-                            player[rowf, colf] = 0;
-                            flags++;
-                            break;
+                            Console.WriteLine("Vui long nhap lai!");
                         }
-                        else { Console.WriteLine("O nay da duoc chon roi!"); }
                     }
                 }
                 else
@@ -135,7 +179,7 @@ namespace Minesweeper
                         }
                         catch (Exception loi)
                         {
-                            Console.WriteLine(loi.Message);
+                            Console.WriteLine("Vui long nhap lai!");
                         }
                     }
                 }
@@ -155,6 +199,7 @@ namespace Minesweeper
                     Console.WriteLine("Thang!");
                     isOver = true;
                 }
+                
             }
             // show map
             for (int i = 0; i < 9; i++)
@@ -202,5 +247,6 @@ namespace Minesweeper
                 }
             }
         }
+  
     }
 }
