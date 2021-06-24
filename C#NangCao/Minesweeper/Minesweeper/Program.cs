@@ -113,9 +113,16 @@ namespace Minesweeper
                     }
                 }
                 Console.WriteLine("\nSo co con lai: " + flags);
-                Console.Write("F de cam co, an nut bat ky de bat dau tro choi: ");
+                Console.Write("F de cam co, Q de ket thuc tro choi, Enter de bat dau: ");
                 string input = Console.ReadLine().ToLower();
-                if (input.Contains("f"))
+                //Console.WriteLine();
+                if (input.Contains("q"))
+                {
+                    
+                    Console.WriteLine("\nKet thuc tro choi!");
+                    isOver = true;
+                }
+                else if (input.Contains("f"))
                 {
                     while (!isOver)
                     {
@@ -139,7 +146,7 @@ namespace Minesweeper
                             }
                             else { Console.WriteLine("O nay da duoc chon roi!"); }
                         }
-                        catch (Exception err)
+                        catch (Exception)
                         {
                             Console.WriteLine("Vui long nhap lai!");
                         }
@@ -166,7 +173,8 @@ namespace Minesweeper
                             }
                             else if (map[irow, icol] == -1)
                             {
-                                Console.WriteLine("Thua!");
+                                //Console.Clear();
+                                Console.WriteLine("\nThua!");
                                 isOver = true;
 
                             }
@@ -196,7 +204,8 @@ namespace Minesweeper
                 }
                 if (count == 0)
                 {
-                    Console.WriteLine("Thang!");
+                    //Console.Clear();
+                    Console.WriteLine("\nThang!");
                     isOver = true;
                 }
                 
