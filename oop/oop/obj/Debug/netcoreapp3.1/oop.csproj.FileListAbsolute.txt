@@ -1,0 +1,13 @@
+D:\maico\ntk_repo\oop\oop\bin\Debug\netcoreapp3.1\oop.exe
+D:\maico\ntk_repo\oop\oop\bin\Debug\netcoreapp3.1\oop.deps.json
+D:\maico\ntk_repo\oop\oop\bin\Debug\netcoreapp3.1\oop.runtimeconfig.json
+D:\maico\ntk_repo\oop\oop\bin\Debug\netcoreapp3.1\oop.runtimeconfig.dev.json
+D:\maico\ntk_repo\oop\oop\bin\Debug\netcoreapp3.1\oop.dll
+D:\maico\ntk_repo\oop\oop\bin\Debug\netcoreapp3.1\oop.pdb
+D:\maico\ntk_repo\oop\oop\obj\Debug\netcoreapp3.1\oop.csproj.AssemblyReference.cache
+D:\maico\ntk_repo\oop\oop\obj\Debug\netcoreapp3.1\oop.AssemblyInfoInputs.cache
+D:\maico\ntk_repo\oop\oop\obj\Debug\netcoreapp3.1\oop.AssemblyInfo.cs
+D:\maico\ntk_repo\oop\oop\obj\Debug\netcoreapp3.1\oop.csproj.CoreCompileInputs.cache
+D:\maico\ntk_repo\oop\oop\obj\Debug\netcoreapp3.1\oop.dll
+D:\maico\ntk_repo\oop\oop\obj\Debug\netcoreapp3.1\oop.pdb
+D:\maico\ntk_repo\oop\oop\obj\Debug\netcoreapp3.1\oop.genruntimeconfig.cache

@@ -23,6 +23,7 @@ namespace oop
                     Console.Write("\nSố lượng hóa đơn muốn nhập: ");
                 }
             }
+            // tao hoa don
             List<HoaDon> lhd = new List<HoaDon>();
             for (int i = 1; i <= slhd; i++)
             {
@@ -33,22 +34,51 @@ namespace oop
 
             }
             Console.Clear();
-            foreach (var item in lhd)
+            // in hoa don ra console
+            lhd[0].getInfo();
+            Console.WriteLine();
+            Console.WriteLine("'=>' để sang hóa đơn tiếp theo");
+            Console.WriteLine("'<=' để trở về hóa đơn trước");
+            Console.WriteLine("'Enter' để kết thúc");
+            int o = 1;
+            while (o < lhd.Count)
             {
-                item.getInfo();
-                Console.WriteLine();
-                Console.WriteLine();
+                var arrow = Console.ReadKey();
+                Console.Clear();
+                if (arrow.Key == ConsoleKey.RightArrow)
+                {
+                    lhd[o].getInfo();
+                    Console.WriteLine();
+                    
+                    
+                }
+                if (arrow.Key == ConsoleKey.LeftArrow)
+                {
+                    lhd[o - 1].getInfo();
+                    Console.WriteLine();
+                }
+                if (arrow.Key == ConsoleKey.Enter)
+                {
+                    Console.WriteLine("Chuan bi ghi du lieu sang file txt");
+                    break;
+                }
+                Console.WriteLine("'=>' để sang hóa đơn tiếp theo");
+                Console.WriteLine("'<=' để trở về hóa đơn trước");
+                Console.WriteLine("'Enter' để kết thúc");
             }
 
-
+            // ghi du lieu vao file txt, em dung Append chu khong phai OpenOrCreate
             foreach (var itemToTxt in lhd)
             {
                 itemToTxt.toTxtFile();
                 Console.WriteLine();
                 Console.WriteLine();
+                
             }
-            Console.ReadLine();
+            //Console.ReadLine();
 
         }
+
+        
     }
 }

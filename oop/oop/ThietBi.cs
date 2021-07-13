@@ -36,6 +36,11 @@ namespace oop
             tab.Append(' ', 5);
             Console.Write($"\n{tab}{tab}{tab}{tab}Nhập mã: ");
             string ma = Console.ReadLine();
+            while (String.IsNullOrEmpty(ma))
+            {
+                Console.Write($"\n{tab}{tab}{tab}{tab}Nhập mã: ");
+                ma = Console.ReadLine();
+            }
             Console.Write($"\n{tab}{tab}{tab}{tab}Tên sản phẩm: ");
             string ten = Console.ReadLine();
             Console.Write($"\n{tab}{tab}{tab}{tab}Nơi sản xuất: ");
@@ -74,8 +79,8 @@ namespace oop
             Console.Write($"<Mã quạt: {this.maSP}>, ");
             Console.Write($"<Loại máy quạt: Quạt đứng>, ");
             Console.Write($"<Tên quạt: {this.tenSP}>, ");
-            Console.Write($"Đơn giá: {this.giaBan}>, ");
-            Console.Write($"<Số lượng: {this.soLuong}>");
+            Console.Write($"<Đơn giá: {this.giaBan}>, ");
+            Console.WriteLine($"<Số lượng: {this.soLuong}>");
         }
     }
 
@@ -88,6 +93,11 @@ namespace oop
             tab.Append(' ', 5);
             Console.Write($"\n{tab}{tab}{tab}{tab}Nhập mã: ");
             string ma = Console.ReadLine();
+            while (String.IsNullOrEmpty(ma))
+            {
+                Console.Write($"\n{tab}{tab}{tab}{tab}Nhập mã: ");
+                ma = Console.ReadLine();
+            }
             Console.Write($"\n{tab}{tab}{tab}{tab}Tên sản phẩm: ");
             string ten = Console.ReadLine();
             Console.Write($"\n{tab}{tab}{tab}{tab}Nơi sản xuất: ");
@@ -143,9 +153,9 @@ namespace oop
             Console.Write($"<Mã quạt: {this.maSP}>, ");
             Console.Write($"<Loại máy quạt: Quạt hơi nước>, ");
             Console.Write($"<Tên quạt: {this.tenSP}>, ");
-            Console.Write($"Đơn giá: {this.giaBan}>, ");
+            Console.Write($"<Đơn giá: {this.giaBan}>, ");
             Console.Write($"<Dung tích nước: {this.dungTich}>, ");
-            Console.Write($"<Số lượng: {this.soLuong}>");
+            Console.WriteLine($"<Số lượng: {this.soLuong}>");
 
         }
     }
@@ -159,6 +169,11 @@ namespace oop
             tab.Append(' ', 5);
             Console.Write($"\n{tab}{tab}{tab}{tab}Nhập mã: ");
             string ma = Console.ReadLine();
+            while (String.IsNullOrEmpty(ma))
+            {
+                Console.Write($"\n{tab}{tab}{tab}{tab}Nhập mã: ");
+                ma = Console.ReadLine();
+            }
             Console.Write($"\n{tab}{tab}{tab}{tab}Tên sản phẩm: ");
             string ten = Console.ReadLine();
             Console.Write($"\n{tab}{tab}{tab}{tab}Nơi sản xuất: ");
@@ -213,9 +228,9 @@ namespace oop
             Console.Write($"<Mã quạt: {this.maSP}>, ");
             Console.Write($"<Loại máy quạt: Quạt điện>, ");
             Console.Write($"<Tên quạt: {this.tenSP}>, ");
-            Console.Write($"Đơn giá: {this.giaBan}>, ");
+            Console.Write($"<Đơn giá: {this.giaBan}>, ");
             Console.Write($"<Dung lượng pin: {this.dungLuong}>, ");
-            Console.Write($"<Số lượng: {this.soLuong}>");
+            Console.WriteLine($"<Số lượng: {this.soLuong}>");
         }
     }
 
@@ -228,6 +243,11 @@ namespace oop
             tab.Append(' ', 5);
             Console.Write($"\n{tab}{tab}{tab}{tab}Nhập mã: ");
             string ma = Console.ReadLine();
+            while (String.IsNullOrEmpty(ma))
+            {
+                Console.Write($"\n{tab}{tab}{tab}{tab}Nhập mã: ");
+                ma = Console.ReadLine();
+            }
             Console.Write($"\n{tab}{tab}{tab}{tab}Tên sản phẩm: ");
             string ten = Console.ReadLine();
             Console.Write($"\n{tab}{tab}{tab}{tab}Nơi sản xuất: ");
@@ -287,10 +307,10 @@ namespace oop
             Console.Write($"<Mã máy lạnh: {this.maSP}>, ");
             Console.Write($"<Loại máy lạnh: Máy lạnh một chiều>, ");
             Console.Write($"<Tên máy lạnh: {this.tenSP}>, ");
-            Console.Write($"Đơn giá: {this.giaBan}>, ");
+            Console.Write($"<Đơn giá: {this.giaBan}>, ");
             Console.Write("<Công nghệ Inverter: ");
             Console.Write(this.inverter ? "Có>, " : "Không>, ");
-            Console.Write($"<Số lượng: {this.soLuong}>");
+            Console.WriteLine($"<Số lượng: {this.soLuong}>");
         }
 
     }
@@ -307,6 +327,11 @@ namespace oop
             tab.Append(' ', 5);
             Console.Write($"\n{tab}{tab}{tab}{tab}Nhập mã: ");
             string ma = Console.ReadLine();
+            while (String.IsNullOrEmpty(ma))
+            {
+                Console.Write($"\n{tab}{tab}{tab}{tab}Nhập mã: ");
+                ma = Console.ReadLine();
+            }
             Console.Write($"\n{tab}{tab}{tab}{tab}Tên sản phẩm: ");
             string ten = Console.ReadLine();
             Console.Write($"\n{tab}{tab}{tab}{tab}Nơi sản xuất: ");
@@ -437,14 +462,14 @@ namespace oop
             Console.Write($"<Mã máy lạnh: {this.maSP}>, ");
             Console.Write($"<Loại máy lạnh: Máy lạnh hai chiều>, ");
             Console.Write($"<Tên máy lạnh: {this.tenSP}>, ");
-            Console.Write($"Đơn giá: {this.giaBan}>, ");
+            Console.Write($"<Đơn giá: {this.giaBan}>, ");
             Console.Write("<Công nghệ Inverter: ");
             Console.Write(this.inverter ? "Có>, " : "Không>, ");
             Console.Write("<Công nghệ khử mùi: ");
             Console.Write(this.khumui ? "Có>, " : "Không>, ");
             Console.Write("<Công nghệ kháng khuẩn: ");
             Console.Write(this.khangkhuan ? "Có>, " : "Không>, ");
-            Console.Write($"<Số lượng: {this.soLuong}>");
+            Console.WriteLine($"<Số lượng: {this.soLuong}>");
         }
     }
 }

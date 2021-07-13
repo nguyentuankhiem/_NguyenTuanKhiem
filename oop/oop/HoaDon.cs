@@ -33,6 +33,11 @@ namespace oop
             tab.Append(' ', 5);
             Console.Write($"\n{tab}Mã hóa đơn: ");
             string mahd = Console.ReadLine();
+            while (String.IsNullOrEmpty(mahd))
+            {
+                Console.Write($"\n{tab}Mã hóa đơn: ");
+                mahd = Console.ReadLine();
+            }
             Console.WriteLine($"\n{tab}Thông tin khách hàng: ");
             KhachHang kh = new KhachHang();
             kh.taoKH();
@@ -188,10 +193,12 @@ namespace oop
             {
                 item.getInfo();
             }
+            Console.WriteLine();
 
             //Console.Write("So san pham: " + Q.Count);
 
         }
+        
 
         public void toTxtFile()
         {
@@ -220,8 +227,8 @@ namespace oop
                     sw.Write($"<Mã quạt: {item.maSP}>, ");
                     sw.Write($"<Loại máy quạt: Quạt đứng>, ");
                     sw.Write($"<Tên quạt: {item.tenSP}>, ");
-                    sw.Write($"Đơn giá: {item.giaBan}>, ");
-                    sw.Write($"<Số lượng: {item.soLuong}>");
+                    sw.Write($"<Đơn giá: {item.giaBan}>, ");
+                    sw.WriteLine($"<Số lượng: {item.soLuong}>");
                 }
                 else if (item.GetType() == typeof(QuatHoiNuoc))
                 {
@@ -229,9 +236,9 @@ namespace oop
                     sw.Write($"<Mã quạt: {item.maSP}>, ");
                     sw.Write($"<Loại máy quạt: Quạt hơi nước>, ");
                     sw.Write($"<Tên quạt: {item.tenSP}>, ");
-                    sw.Write($"Đơn giá: {item.giaBan}>, ");
+                    sw.Write($"<Đơn giá: {item.giaBan}>, ");
                     sw.Write($"<Dung tích nước: {item.dungTich}>, ");
-                    sw.Write($"<Số lượng: {item.soLuong}>");
+                    sw.WriteLine($"<Số lượng: {item.soLuong}>");
                 }
                 else if (item.GetType() == typeof(QuatDien))
                 {
@@ -239,9 +246,9 @@ namespace oop
                     sw.Write($"<Mã quạt: {item.maSP}>, ");
                     sw.Write($"<Loại máy quạt: Quạt điện>, ");
                     sw.Write($"<Tên quạt: {item.tenSP}>, ");
-                    sw.Write($"Đơn giá: {item.giaBan}>, ");
+                    sw.Write($"<Đơn giá: {item.giaBan}>, ");
                     sw.Write($"<Dung lượng pin: {item.dungLuong}>, ");
-                    sw.Write($"<Số lượng: {item.soLuong}>");
+                    sw.WriteLine($"<Số lượng: {item.soLuong}>");
                 }
                 else if (item.GetType() == typeof(MayLanhMotChieu))
                 {
@@ -249,10 +256,10 @@ namespace oop
                     sw.Write($"<Mã máy lạnh: {item.maSP}>, ");
                     sw.Write($"<Loại máy lạnh: Máy lạnh một chiều>, ");
                     sw.Write($"<Tên máy lạnh: {item.tenSP}>, ");
-                    sw.Write($"Đơn giá: {item.giaBan}>, ");
+                    sw.Write($"<Đơn giá: {item.giaBan}>, ");
                     sw.Write("<Công nghệ Inverter: ");
                     sw.Write(item.inverter ? "Có>, " : "Không>, ");
-                    sw.Write($"<Số lượng: {item.soLuong}>");
+                    sw.WriteLine($"<Số lượng: {item.soLuong}>");
                 }
                 else if (item.GetType() == typeof(MayLanhHaiChieu))
                 {
@@ -260,14 +267,14 @@ namespace oop
                     sw.Write($"<Mã máy lạnh: {item.maSP}>, ");
                     sw.Write($"<Loại máy lạnh: Máy lạnh hai chiều>, ");
                     sw.Write($"<Tên máy lạnh: {item.tenSP}>, ");
-                    sw.Write($"Đơn giá: {item.giaBan}>, ");
+                    sw.Write($"<Đơn giá: {item.giaBan}>, ");
                     sw.Write("<Công nghệ Inverter: ");
                     sw.Write(item.inverter ? "Có>, " : "Không>, ");
                     sw.Write("<Công nghệ khử mùi: ");
                     sw.Write(item.khumui ? "Có>, " : "Không>, ");
                     sw.Write("<Công nghệ kháng khuẩn: ");
                     sw.Write(item.khangkhuan ? "Có>, " : "Không>, ");
-                    sw.Write($"<Số lượng: {item.soLuong}>");
+                    sw.WriteLine($"<Số lượng: {item.soLuong}>");
                 }
             }
 

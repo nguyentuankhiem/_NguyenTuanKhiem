@@ -18,6 +18,11 @@ namespace oop
             tab.Append(' ', 10);
             Console.Write($"\n{tab}Ma KH: ");
             string ma = Console.ReadLine();
+            while (String.IsNullOrEmpty(ma))
+            {
+                Console.Write($"\n{tab}Ma KH: ");
+                ma = Console.ReadLine();
+            }
             Console.Write($"\n{tab}Ten KH: ");
             string ten = Console.ReadLine();
             Console.Write($"\n{tab}SDT: ");
