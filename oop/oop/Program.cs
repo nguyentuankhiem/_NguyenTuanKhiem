@@ -43,28 +43,42 @@ namespace oop
             int o = 1;
             while (o < lhd.Count)
             {
-                var arrow = Console.ReadKey();
-                Console.Clear();
-                if (arrow.Key == ConsoleKey.RightArrow)
+                try
                 {
-                    lhd[o].getInfo();
-                    Console.WriteLine();
-                    
-                    
+                    var arrow = Console.ReadKey();
+                    Console.Clear();
+                    if (arrow.Key == ConsoleKey.RightArrow)
+                    {
+                        lhd[o].getInfo();
+                        Console.WriteLine();
+                        
+                        
+                    }
+                    if (arrow.Key == ConsoleKey.LeftArrow)
+                    {
+                        
+                        lhd[o - 1].getInfo();
+                        Console.WriteLine();
+                        
+                    }
+
+
+                    if (arrow.Key == ConsoleKey.Enter)
+                    {
+                        Console.WriteLine("Chuẩn bị ghi dữ liệu vào file 'danh_sach_hoa_don.txt'");
+                        Console.WriteLine("File sẽ được đặt ở Desktop");
+                        break;
+                    }
+                    Console.WriteLine("'=>' để sang hóa đơn tiếp theo");
+                    Console.WriteLine("'<=' để trở về hóa đơn trước");
+                    Console.WriteLine("'Enter' để kết thúc");
                 }
-                if (arrow.Key == ConsoleKey.LeftArrow)
+                catch (IndexOutOfRangeException)
                 {
-                    lhd[o - 1].getInfo();
-                    Console.WriteLine();
+                    Console.WriteLine("'=>' để sang hóa đơn tiếp theo");
+                    Console.WriteLine("'<=' để trở về hóa đơn trước");
+                    Console.WriteLine("'Enter' để kết thúc");
                 }
-                if (arrow.Key == ConsoleKey.Enter)
-                {
-                    Console.WriteLine("Chuan bi ghi du lieu sang file txt");
-                    break;
-                }
-                Console.WriteLine("'=>' để sang hóa đơn tiếp theo");
-                Console.WriteLine("'<=' để trở về hóa đơn trước");
-                Console.WriteLine("'Enter' để kết thúc");
             }
 
             // ghi du lieu vao file txt, em dung Append chu khong phai OpenOrCreate
@@ -75,7 +89,7 @@ namespace oop
                 Console.WriteLine();
                 
             }
-            //Console.ReadLine();
+            
 
         }
 

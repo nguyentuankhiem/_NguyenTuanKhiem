@@ -10,7 +10,7 @@ namespace oop
         public string maHD { get; set; }
         public KhachHang KH { get; set; }
 
-        public List<ThietBi> chitietHD { get; set; }
+        public List<TB> chitietHD { get; set; }
         public DateTime ngayLapHD { get; set; }
         public int giaHD { get; set; }
 
@@ -56,7 +56,7 @@ namespace oop
                     Console.Write($"\n{tab}{tab}Số lượng chi tiết trong danh sách các chi tiết hóa đơn: ");
                 }
             }
-            this.chitietHD = new List<ThietBi>();
+            this.chitietHD = new List<TB>();
             for (int i = 1; i <= slct; i++)
             {
 
