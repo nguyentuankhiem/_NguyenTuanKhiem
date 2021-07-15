@@ -65,8 +65,7 @@ namespace oop
 
                     if (arrow.Key == ConsoleKey.Enter)
                     {
-                        Console.WriteLine("Chuẩn bị ghi dữ liệu vào file 'danh_sach_hoa_don.txt'");
-                        Console.WriteLine("File sẽ được đặt ở Desktop");
+                        
                         break;
                     }
                     Console.WriteLine("'=>' để sang hóa đơn tiếp theo");
@@ -89,7 +88,9 @@ namespace oop
                 Console.WriteLine();
                 
             }
-            
+            Console.WriteLine("Chuẩn bị ghi dữ liệu vào file 'danh_sach_hoa_don.txt'");
+            Console.WriteLine("File sẽ được đặt ở Desktop");
+
 
         }
 
