@@ -1,99 +1,66 @@
-﻿using System;
+﻿using oop.Bill;
+using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Text;
 
-namespace oop
+namespace testOOP_lan3
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Console.OutputEncoding = System.Text.Encoding.Unicode;
             Console.InputEncoding = System.Text.Encoding.Unicode;
-            Console.Write("Số lượng hóa đơn muốn nhập: ");
-            int slhd;
+            Console.OutputEncoding = System.Text.Encoding.Unicode;
+            BillClass[] bill = new BillClass[100];
+            Console.Write("Số lượng hóa đơn: ");
+            int billNum;
             while (true)
             {
                 try
                 {
-                    slhd = int.Parse(Console.ReadLine());
+                    billNum = int.Parse(Console.ReadLine());
                     break;
                 }
                 catch (Exception)
                 {
-                    Console.Write("\nSố lượng hóa đơn muốn nhập: ");
+                    Console.Write("Số lượng hóa đơn: ");
                 }
             }
-            // tao hoa don
-            List<HoaDon> lhd = new List<HoaDon>();
-            for (int i = 1; i <= slhd; i++)
+
+            for (int i = 0; i < billNum; i++)
             {
-                Console.WriteLine($"\nNhập thông tin hóa đơn {i}:");
-                HoaDon hd = new HoaDon();
-                hd.taoHD();
-                lhd.Add(hd);
+                Console.WriteLine($"\nHóa đơn thứ {i + 1}: ");
+                bill[i] = new BillClass();
+                bill[i].CreateBill();
+                Console.Clear();
+                Console.WriteLine(bill[i].getInfo());
 
             }
-            Console.Clear();
-            // in hoa don ra console
-            lhd[0].getInfo();
-            Console.WriteLine();
-            Console.WriteLine("'=>' để sang hóa đơn tiếp theo");
-            Console.WriteLine("'<=' để trở về hóa đơn trước");
-            Console.WriteLine("'Enter' để kết thúc");
-            int o = 1;
-            while (o < lhd.Count)
+
+
+            FileStream fs = new FileStream(Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"/danh_sach_hoa_don.txt", FileMode.OpenOrCreate, FileAccess.Write);
+            StreamWriter sw = new StreamWriter(fs);
+
+            for (int i = 0; i < billNum; i++)
             {
-                try
+                sw.WriteLine(bill[i].getInfo());
+            }
+            sw.Flush();
+            Console.Write("Enter để lưu hóa đơn vào file txt: ");
+            var input = Console.ReadKey();
+            while (true)
+            {
+                if (input.Key == ConsoleKey.Enter)
                 {
-                    var arrow = Console.ReadKey();
-                    Console.Clear();
-                    if (arrow.Key == ConsoleKey.RightArrow)
-                    {
-                        lhd[o].getInfo();
-                        Console.WriteLine();
-                        
-                        
-                    }
-                    if (arrow.Key == ConsoleKey.LeftArrow)
-                    {
-                        
-                        lhd[o - 1].getInfo();
-                        Console.WriteLine();
-                        
-                    }
-
-
-                    if (arrow.Key == ConsoleKey.Enter)
-                    {
-                        
-                        break;
-                    }
-                    Console.WriteLine("'=>' để sang hóa đơn tiếp theo");
-                    Console.WriteLine("'<=' để trở về hóa đơn trước");
-                    Console.WriteLine("'Enter' để kết thúc");
-                }
-                catch (IndexOutOfRangeException)
-                {
-                    Console.WriteLine("'=>' để sang hóa đơn tiếp theo");
-                    Console.WriteLine("'<=' để trở về hóa đơn trước");
-                    Console.WriteLine("'Enter' để kết thúc");
+                    Console.WriteLine("'danh_sach_hoa_don.txt' đã được lưu vào Desktop");
+                    break;
                 }
             }
 
-            // ghi du lieu vao file txt, em dung Append chu khong phai OpenOrCreate
-            foreach (var itemToTxt in lhd)
-            {
-                itemToTxt.toTxtFile();
-                Console.WriteLine();
-                Console.WriteLine();
-                
-            }
-            Console.WriteLine("Chuẩn bị ghi dữ liệu vào file 'danh_sach_hoa_don.txt'");
-            Console.WriteLine("File sẽ được đặt ở Desktop");
 
 
+            
         }
-
-        
     }
 }
