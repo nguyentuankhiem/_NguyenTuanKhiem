@@ -34,8 +34,10 @@ namespace testOOP_lan3
                 bill[i] = new BillClass();
                 bill[i].CreateBill();
                 Console.Clear();
-                Console.WriteLine(bill[i].getInfo());
-
+            }
+            for (int j = 0; j < billNum; j++) 
+            {
+                Console.WriteLine(bill[j].getInfo());
             }
 
 
