@@ -90,18 +90,12 @@ namespace oop.Bill
                         {
                             case 1:
                                 devices = new StandFan();
-                                devices.AddDevice();
-                                this.totalPrice += devices.totalPrice();
                                 break;
                             case 2:
                                 devices = new SteamFan();
-                                devices.AddDevice();
-                                this.totalPrice += devices.totalPrice();
                                 break;
                             case 3:
                                 devices = new ElectricFan();
-                                devices.AddDevice();
-                                this.totalPrice += devices.totalPrice();
                                 break;
                         }
                         break;
@@ -123,18 +117,15 @@ namespace oop.Bill
                         {
                             case 1:
                                 devices = new OneWayAC();
-                                devices.AddDevice();
-                                this.totalPrice += devices.totalPrice();
                                 break;
                             case 2:
                                 devices = new TwoWayAC();
-                                devices.AddDevice();
-                                this.totalPrice += devices.totalPrice();
                                 break;
                         }
                         break;
                 }
-
+                devices.AddDevice();
+                this.totalPrice += devices.totalPrice();
                 data += devices.getInfo();
                 data += "\n\t--------------------";
             }
