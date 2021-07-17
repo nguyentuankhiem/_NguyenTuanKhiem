@@ -10,8 +10,7 @@ namespace oop.Bill
 {
     class BillClass
     {
-        private string id;
-        public string ID { get { return id; } }
+        private string id { get; set; }
 
         private DateTime dateCreated = DateTime.Now;
 
@@ -126,6 +125,7 @@ namespace oop.Bill
                 }
                 devices.AddDevice();
                 this.totalPrice += devices.totalPrice();
+                
                 data += devices.getInfo();
                 data += "\n\t--------------------";
             }
@@ -135,7 +135,7 @@ namespace oop.Bill
         {
 
             return $"\n----------Hóa đơn----------" +
-            $"\n\n\tID: {this.ID}" +
+            $"\n\n\tID: {this.id}" +
             $"\tNgày tạo: {this.dateCreated}" +
             $"\tGiá hóa đơn: {this.totalPrice}" +
             $"\n\n----------Thông tin khách hàng----------" +

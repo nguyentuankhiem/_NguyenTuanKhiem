@@ -6,8 +6,7 @@ namespace oop.Devices.Fan.FanTypes
 {
     class SteamFan : FanClass
     {
-        private int waterCap;
-        public int WaterCapacity { get { return waterCap; } }
+        private int waterCap { get; set; }
 
         public SteamFan()
         {
@@ -38,7 +37,7 @@ namespace oop.Devices.Fan.FanTypes
             $"\n\tLoại quạt: Quạt hơi nước" +
             $"\n\tNơi sản xuất:  {this.Producer}" +
             $"\n\tĐơn giá: {this.Price}" +
-            $"\n\tDung tích nước: {this.WaterCapacity}" +
+            $"\n\tDung tích nước: {this.waterCap}" +
             $"\n\tSố lượng: {this.Amount}\n\n";
         }
         public override int totalPrice()

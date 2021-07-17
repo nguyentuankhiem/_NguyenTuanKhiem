@@ -6,12 +6,16 @@ namespace oop.Devices.AC.ACTypes
 {
     class OneWayAC : ACClass
     {
-        private int inver;
-        public bool Inverter
+        private int inver { get; set; }
+        private bool Inverter
         {
             get
             {
-                return inver == 1 ? true : false;
+                if (inver == 1)
+                {
+                    return true;
+                }
+                else { return false; }
             }
         }
 

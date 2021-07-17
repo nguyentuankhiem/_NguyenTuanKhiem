@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
-namespace testOOP_lan3
+namespace oop
 {
     class Program
     {
@@ -24,7 +24,7 @@ namespace testOOP_lan3
                 }
                 catch (Exception)
                 {
-                    Console.Write("Số lượng hóa đơn: ");
+                    Console.Write("\nSố lượng hóa đơn: ");
                 }
             }
 
@@ -36,7 +36,7 @@ namespace testOOP_lan3
                 Console.Clear();
             }
 
-            for (int j = 0; j< billNum; j++)
+            for (int j = 0; j < billNum; j++)
             {
                 Console.WriteLine(bill[j].getInfo());
             }
@@ -51,9 +51,10 @@ namespace testOOP_lan3
             }
             sw.Flush();
             Console.Write("Enter để lưu hóa đơn vào file txt: ");
-            var input = Console.ReadKey();
+            
             while (true)
             {
+                var input = Console.ReadKey();
                 if (input.Key == ConsoleKey.Enter)
                 {
                     Console.WriteLine("'danh_sach_hoa_don.txt' đã được lưu vào Desktop");

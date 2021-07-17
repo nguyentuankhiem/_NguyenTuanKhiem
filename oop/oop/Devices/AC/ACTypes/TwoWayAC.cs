@@ -6,30 +6,42 @@ namespace oop.Devices.AC.ACTypes
 {
     class TwoWayAC : ACClass
     {
-        private int inver;
-        public bool Inverter
+        private int inver { get; set; }
+        private bool Inverter
         {
             get
             {
-                return inver == 1 ? true : false;
+                if (inver == 1)
+                {
+                    return true;
+                }
+                else { return false; }
             }
         }
 
         private int deo;
-        public bool Deodorant
+        private bool Deodorant
         {
             get
             {
-                return deo == 1 ? true : false;
+                if (deo == 1)
+                {
+                    return true;
+                }
+                else { return false; }
             }
         }
 
         private int anti;
-        public bool Antimicrobial
+        private bool Antimicrobial
         {
             get
             {
-                return this.anti == 1 ? true : false;
+                if (anti == 1)
+                {
+                    return true;
+                }
+                else { return false; }
             }
         }
 
