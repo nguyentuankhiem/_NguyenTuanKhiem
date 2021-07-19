@@ -6,10 +6,15 @@ namespace oop.Customer
 {
     public class CustomerClass
     {
-        private string id { get; set; }
-        private string name { get; set; }
-        private string address { get; set; }
-        private string pnumber { get; set; }
+        private string id;
+        private string name;
+        private string address;
+        private string pnumber;
+
+        public string ID { get { return id; } set { id = value; } }
+        public string Name { get { return name; } set { name = value; } }
+        public string Address { get { return address; } set { address = value; } }
+        public string PNumber { get { return pnumber; } set { pnumber = value; } }
 
         public void addCustomer()
         {
@@ -26,10 +31,10 @@ namespace oop.Customer
         public string getInfo()
         {
             //Console.WriteLine("\nCustomer Info: ");
-            return $"\n\tMã: {this.id}" +
-            $"\n\tTên: {this.name}" +
-            $"\n\tĐịa chỉ: {this.address}" +
-            $"\n\tSố điện thoại: {this.pnumber}\n";
+            return $"\n\tMã: {this.ID}" +
+            $"\n\tTên: {this.Name}" +
+            $"\n\tĐịa chỉ: {this.Address}" +
+            $"\n\tSố điện thoại: {this.PNumber}\n";
         }
     }
 }

@@ -8,7 +8,7 @@ namespace oop.Devices.Fan.FanTypes
     {
         public StandFan()
         {
-            Price = 500;
+            this.price = 500;
         }
 
         public override void AddDevice()
@@ -18,12 +18,12 @@ namespace oop.Devices.Fan.FanTypes
         public override string getInfo()
         {
             return $"\n\tMáy quạt:" +
-            $"\n\tMã sản phẩm: {ID}" +
-            $"\n\tTên: {Name}" +
+            $"\n\tMã sản phẩm: {this.ID}" +
+            $"\n\tTên: {this.Name}" +
             $"\n\tLoại quạt: Quạt đứng" +
-            $"\n\tNơi sản xuất: {Producer}" +
-            $"\n\tĐơn giá: {Price}" +
-            $"\n\tSố lượng: {Amount}\n\n";
+            $"\n\tNơi sản xuất: {this.Producer}" +
+            $"\n\tĐơn giá: {this.Price}" +
+            $"\n\tSố lượng: {this.Amount}\n\n";
         }
 
         public override int totalPrice()

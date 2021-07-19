@@ -6,7 +6,8 @@ namespace oop.Devices.Fan.FanTypes
 {
     class SteamFan : FanClass
     {
-        private int waterCap { get; set; }
+        private int waterCap;
+        public int WaterCapacity { get; set; }
 
         public SteamFan()
         {
@@ -23,7 +24,7 @@ namespace oop.Devices.Fan.FanTypes
                     Console.Write($"\n\t\t\t\tDung tích nước: ");
                 }
             }
-            this.Price = this.waterCap * 400;
+            this.price = this.waterCap * 400;
         }
         public override void AddDevice()
         {
@@ -37,7 +38,7 @@ namespace oop.Devices.Fan.FanTypes
             $"\n\tLoại quạt: Quạt hơi nước" +
             $"\n\tNơi sản xuất:  {this.Producer}" +
             $"\n\tĐơn giá: {this.Price}" +
-            $"\n\tDung tích nước: {this.waterCap}" +
+            $"\n\tDung tích nước: {this.WaterCapacity}" +
             $"\n\tSố lượng: {this.Amount}\n\n";
         }
         public override int totalPrice()

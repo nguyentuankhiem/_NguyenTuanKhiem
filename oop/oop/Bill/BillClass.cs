@@ -10,9 +10,16 @@ namespace oop.Bill
 {
     class BillClass
     {
-        private string id { get; set; }
+        private string id;
+        public string ID { get { return id; } set { id = value; } }
 
-        private DateTime dateCreated = DateTime.Now;
+        public DateTime DateCreated
+        {
+            get
+            {
+                return DateTime.Now;
+            }
+        }
 
         private CustomerClass customer { get; set; }
         private int totalPrice { get; set; }
@@ -135,8 +142,8 @@ namespace oop.Bill
         {
 
             return $"\n----------Hóa đơn----------" +
-            $"\n\n\tID: {this.id}" +
-            $"\tNgày tạo: {this.dateCreated}" +
+            $"\n\n\tID: {this.ID}" +
+            $"\tNgày tạo: {this.DateCreated}" +
             $"\tGiá hóa đơn: {this.totalPrice}" +
             $"\n\n----------Thông tin khách hàng----------" +
             $"\n\t\t{customer.getInfo()}" +

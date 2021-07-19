@@ -7,7 +7,7 @@ namespace oop.Devices.AC.ACTypes
     class TwoWayAC : ACClass
     {
         private int inver { get; set; }
-        private bool Inverter
+        public bool Inverter
         {
             get
             {
@@ -104,28 +104,28 @@ namespace oop.Devices.AC.ACTypes
                 }
             }
 
-            if (this.Inverter)
+            if (this.inver == 1)
             {
-                this.Price = 2500;
-                if (this.Deodorant && this.Antimicrobial)
+                this.price = 2500;
+                if (this.deo == 1 && this.anti == 1)
                 {
-                    this.Price += 1000;
+                    this.price += 1000;
                 }
-                else if (this.Deodorant || this.Antimicrobial)
+                else if (this.deo == 1 || this.anti == 1)
                 {
-                    this.Price += 500;
+                    this.price += 500;
                 }
             }
             else
             {
-                this.Price = 2000;
-                if (this.Deodorant && this.Antimicrobial)
+                this.price = 2000;
+                if (this.deo == 1 && this.anti == 1)
                 {
-                    this.Price += 1000;
+                    this.price += 1000;
                 }
-                else if (this.Deodorant || this.Antimicrobial)
+                else if (this.deo == 1 || this.anti == 1)
                 {
-                    this.Price += 500;
+                    this.price += 500;
                 }
             }
         }

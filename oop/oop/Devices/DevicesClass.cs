@@ -6,11 +6,61 @@ namespace oop.Devices
 {
     abstract class DevicesClass
     {
-        protected string id { get; set; }
-        protected string name { get; set; }
-        protected string producer { get; set; }
-        protected int amount { get; set; }
-        protected int price { get; set; }
+        protected string id;
+        protected string name;
+        protected string producer;
+        protected int amount;
+        protected int price;
+
+        public string ID
+        {
+            get
+            {
+                return id;
+            }
+            set
+            {
+                id = value;
+            }
+        }
+        public string Name
+        {
+            get
+            {
+                return name;
+            }
+            set
+            {
+                name = value;
+            }
+        }
+        public string Producer
+        {
+            get
+            {
+                return producer;
+            }
+            set
+            {
+                producer = value;
+            }
+        }
+        public int Amount
+        {
+            get
+            {
+                return amount;
+            }
+            set
+            {
+                amount = value;
+            }
+        }
+        public int Price
+        {
+            get { return price; }
+            set { price = value; }
+        }
 
         public virtual void AddDevice()
         {

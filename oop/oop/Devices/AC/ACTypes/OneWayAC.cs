@@ -39,7 +39,11 @@ namespace oop.Devices.AC.ACTypes
                     Console.Write("\n\t\t\t\tInverter (1-có, 2-không): ");
                 }
             }
-            this.Price = this.Inverter ? 1500 : 1000;
+            if (this.inver == 1)
+            {
+                this.price = 1500;
+            }
+            else { this.price = 1000; }
         }
         public override string getInfo()
         {

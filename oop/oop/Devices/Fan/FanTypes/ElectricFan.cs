@@ -6,7 +6,8 @@ namespace oop.Devices.Fan.FanTypes
 {
     class ElectricFan : FanClass
     {
-        private int batteryCap { get; set; }
+        private int batteryCap;
+        public int BatteryCapacity { get; set; }
 
         public ElectricFan()
         {
@@ -24,7 +25,7 @@ namespace oop.Devices.Fan.FanTypes
                 }
 
             }
-            this.Price = this.batteryCap * 500;
+            this.price = this.batteryCap * 500;
         }
         public override void AddDevice()
         {
@@ -38,7 +39,7 @@ namespace oop.Devices.Fan.FanTypes
             $"\n\tLoại quạt: Quạt điện" +
             $"\n\tNơi sản xuất: {this.Producer}" +
             $"\n\tĐơn giá: {this.Price}" +
-            $"\n\tDung lượnng pin: {this.batteryCap}" +
+            $"\n\tDung lượnng pin: {this.BatteryCapacity}" +
             $"\n\tSố lượng: {this.Amount}\n\n";
         }
 
