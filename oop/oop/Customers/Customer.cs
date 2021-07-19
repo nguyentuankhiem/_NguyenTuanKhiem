@@ -2,19 +2,19 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace oop.Customer
+namespace oop.Customers
 {
-    public class CustomerClass
+    public class Customer
     {
         private string id;
         private string name;
         private string address;
-        private string pnumber;
+        private double pnumber;
 
         public string ID { get { return id; } set { id = value; } }
         public string Name { get { return name; } set { name = value; } }
         public string Address { get { return address; } set { address = value; } }
-        public string PNumber { get { return pnumber; } set { pnumber = value; } }
+        public double PNumber { get { return pnumber; } set { pnumber = value; } }
 
         public void addCustomer()
         {
@@ -25,7 +25,22 @@ namespace oop.Customer
             Console.Write("\n\t\tĐịa chỉ: ");
             this.address = Console.ReadLine();
             Console.Write("\n\t\tSố điện thoại: ");
-            this.pnumber = Console.ReadLine();
+
+            //this.pnumber = int.Parse(Console.ReadLine()); 
+            while (true)
+            {
+                try
+                {
+                        this.pnumber = double.Parse(Console.ReadLine());
+                        break;
+                    
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("\n\t\tSố điện thoại không chứa ký tự và không được để trống!");
+                    Console.Write("\n\t\tSố điện thoại: ");
+                }
+            }
         }
 
         public string getInfo()

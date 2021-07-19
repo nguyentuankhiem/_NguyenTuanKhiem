@@ -2,18 +2,14 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace oop.Devices.Fan.FanTypes
+namespace oop.Devices.Fans.FanTypes
 {
-    class StandFan : FanClass
+    class StandFan : Fan
     {
-        public StandFan()
-        {
-            this.price = 500;
-        }
-
         public override void AddDevice()
         {
             base.AddDevice();
+            setPrice();
         }
         public override string getInfo()
         {
@@ -24,6 +20,11 @@ namespace oop.Devices.Fan.FanTypes
             $"\n\tNơi sản xuất: {this.Producer}" +
             $"\n\tĐơn giá: {this.Price}" +
             $"\n\tSố lượng: {this.Amount}\n\n";
+        }
+        public override int setPrice()
+        {
+            this.price = 500;
+            return this.price;
         }
 
         public override int totalPrice()

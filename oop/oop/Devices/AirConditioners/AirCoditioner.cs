@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace oop.Devices.AC
+namespace oop.Devices.AirConditioners
 {
-    abstract class ACClass : DevicesClass
+    abstract class AirConditioner : Device
     {
         public override void AddDevice()
         {

@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace oop.Devices.Fan.FanTypes
+namespace oop.Devices.Fans.FanTypes
 {
-    class SteamFan : FanClass
+    class SteamFan : Fan
     {
-        private int waterCap;
+        private int waterCap { get; set; }
         public int WaterCapacity { get; set; }
 
-        public SteamFan()
+        public void insertWaterCap()
         {
             Console.Write($"\n\t\t\t\tDung tích nước: ");
             while (true)
@@ -21,14 +21,17 @@ namespace oop.Devices.Fan.FanTypes
                 }
                 catch (Exception)
                 {
+                    Console.WriteLine("\n\t\t\t\tVui lòng nhập dung tích nước");
                     Console.Write($"\n\t\t\t\tDung tích nước: ");
                 }
             }
-            this.price = this.waterCap * 400;
         }
+
         public override void AddDevice()
         {
+            insertWaterCap();
             base.AddDevice();
+            setPrice();
         }
         public override string getInfo()
         {
@@ -40,6 +43,11 @@ namespace oop.Devices.Fan.FanTypes
             $"\n\tĐơn giá: {this.Price}" +
             $"\n\tDung tích nước: {this.WaterCapacity}" +
             $"\n\tSố lượng: {this.Amount}\n\n";
+        }
+        public override int setPrice()
+        {
+            this.price = this.waterCap * 400;
+            return this.price;
         }
         public override int totalPrice()
         {

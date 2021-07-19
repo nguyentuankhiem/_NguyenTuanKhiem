@@ -1,16 +1,16 @@
-﻿using oop.Customer;
+﻿using oop.Customers;
 using oop.Devices;
-using oop.Devices.AC.ACTypes;
-using oop.Devices.Fan.FanTypes;
+using oop.Devices.AirConditioners.AirConditionerTypes;
+using oop.Devices.Fans.FanTypes;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace oop.Bill
 {
-    class BillClass
+    class Bill
     {
-        private string id;
+        private string id { get; set; }
         public string ID { get { return id; } set { id = value; } }
 
         public DateTime DateCreated
@@ -21,26 +21,44 @@ namespace oop.Bill
             }
         }
 
-        private CustomerClass customer { get; set; }
+        private Customer customer { get; set; }
         private int totalPrice { get; set; }
 
-        private DevicesClass devices;
+        private Device devices { get; set; }
 
-        private int detailsNum;
+        private int detailsNum
+        {
+            get; set;
+        }
 
-        private int deviceChoice;
+        private int deviceChoice
+        {
+            get; set;
+        }
 
-        private int fanType;
-        private int ACType;
-        private string data;
-
+        private int fanType
+        {
+            get; set;
+        }
+        private int ACType
+        {
+            get; set;
+        }
+        private string data
+        {
+            get; set;
+        }
+        public void CreateCustomer()
+        {
+            customer = new Customer();
+            customer.addCustomer();
+        }
         public void CreateBill()
         {
             Console.Write("\n\tMã hóa đơn: ");
             id = Console.ReadLine();
             Console.WriteLine("\n\tThông tin khách hàng: ");
-            customer = new CustomerClass();
-            customer.addCustomer();
+            CreateCustomer();
             Console.WriteLine("\n\tNhập danh sách chi tiết các hóa đơn: ");
             Console.Write("\n\t\tSố lượng chi tiết trong danh sách các chi tiết hóa đơn: ");
             while (true)
@@ -52,6 +70,7 @@ namespace oop.Bill
                 }
                 catch (Exception)
                 {
+                    Console.WriteLine("\n\t\tVui lòng nhập số lượng chi tiết");
                     Console.Write("\n\t\tSố lượng chi tiết trong danh sách các chi tiết hóa đơn: ");
                 }
             }
@@ -122,10 +141,10 @@ namespace oop.Bill
                         switch (ACType)
                         {
                             case 1:
-                                devices = new OneWayAC();
+                                devices = new OneWayAirConditioner();
                                 break;
                             case 2:
-                                devices = new TwoWayAC();
+                                devices = new TwoWayAirConditioner();
                                 break;
                         }
                         break;

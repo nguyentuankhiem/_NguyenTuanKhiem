@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace oop.Devices.Fan
+namespace oop.Devices.Fans
 {
-    abstract class FanClass : DevicesClass
+    abstract class Fan : Device
     {
         public override void AddDevice()
         {

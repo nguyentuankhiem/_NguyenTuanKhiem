@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace oop.Devices.AC.ACTypes
+namespace oop.Devices.AirConditioners.AirConditionerTypes
 {
-    class OneWayAC : ACClass
+    class OneWayAirConditioner : AirConditioner
     {
         private int inver { get; set; }
         private bool Inverter
@@ -19,7 +19,7 @@ namespace oop.Devices.AC.ACTypes
             }
         }
 
-        public OneWayAC()
+        public void insertInverter()
         {
             Console.Write("\n\t\t\t\tInverter (1-có, 2-không): ");
             while (true)
@@ -29,6 +29,7 @@ namespace oop.Devices.AC.ACTypes
                     this.inver = int.Parse(Console.ReadLine());
                     if (this.inver != 1 && this.inver != 2)
                     {
+                        Console.WriteLine("\n\t\t\t\tVui lòng chọn");
                         Console.Write("\n\t\t\t\tInverter (1-có, 2-không): ");
                         this.inver = int.Parse(Console.ReadLine());
                     }
@@ -36,14 +37,17 @@ namespace oop.Devices.AC.ACTypes
                 }
                 catch (Exception)
                 {
+                    Console.WriteLine("\n\t\t\t\tVui lòng chọn");
                     Console.Write("\n\t\t\t\tInverter (1-có, 2-không): ");
                 }
             }
-            if (this.inver == 1)
-            {
-                this.price = 1500;
-            }
-            else { this.price = 1000; }
+        }
+        public override void AddDevice()
+        {
+            insertInverter();
+            base.AddDevice();
+            setPrice();
+
         }
         public override string getInfo()
         {
@@ -55,6 +59,15 @@ namespace oop.Devices.AC.ACTypes
             $"\n\tĐơn giá: {this.Price}" +
             $"\n\tCông nghệ Inverter: {this.Inverter}" +
             $"\n\tSố lượng: {this.Amount}\n\n";
+        }
+        public override int setPrice()
+        {
+            if (this.inver == 1)
+            {
+                this.price = 1500;
+            }
+            else { this.price = 1000; }
+            return this.price;
         }
         public override int totalPrice()
         {

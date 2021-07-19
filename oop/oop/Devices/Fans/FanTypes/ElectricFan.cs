@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace oop.Devices.Fan.FanTypes
+namespace oop.Devices.Fans.FanTypes
 {
-    class ElectricFan : FanClass
+    class ElectricFan : Fan
     {
-        private int batteryCap;
+        private int batteryCap { get; set; }
         public int BatteryCapacity { get; set; }
 
-        public ElectricFan()
+        public void insertBatteryCap()
         {
             Console.Write("\n\t\t\t\tDung lượng pin: ");
             while (true)
@@ -21,15 +21,17 @@ namespace oop.Devices.Fan.FanTypes
                 }
                 catch (Exception)
                 {
+                    Console.WriteLine("\n\t\t\t\tVui lòng nhập dung lượng");
                     Console.Write("\n\t\t\t\tDung lượng pin: ");
                 }
 
             }
-            this.price = this.batteryCap * 500;
         }
         public override void AddDevice()
         {
+            insertBatteryCap();
             base.AddDevice();
+            setPrice();
         }
         public override string getInfo()
         {
@@ -43,6 +45,11 @@ namespace oop.Devices.Fan.FanTypes
             $"\n\tSố lượng: {this.Amount}\n\n";
         }
 
+        public override int setPrice()
+        {
+            this.price = this.batteryCap * 500;
+            return this.price;
+        }
         public override int totalPrice()
         {
             return this.Price * this.Amount;

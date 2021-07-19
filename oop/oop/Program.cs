@@ -12,7 +12,7 @@ namespace oop
         {
             Console.InputEncoding = System.Text.Encoding.Unicode;
             Console.OutputEncoding = System.Text.Encoding.Unicode;
-            BillClass[] bill = new BillClass[100];
+            Bill.Bill[] bill = new Bill.Bill[100];
             Console.Write("Số lượng hóa đơn: ");
             int billNum;
             while (true)
@@ -24,6 +24,7 @@ namespace oop
                 }
                 catch (Exception)
                 {
+                    Console.WriteLine("\nVui lòng nhập số lượng hóa đơn");
                     Console.Write("\nSố lượng hóa đơn: ");
                 }
             }
@@ -31,7 +32,7 @@ namespace oop
             for (int i = 0; i < billNum; i++)
             {
                 Console.WriteLine($"\nHóa đơn thứ {i + 1}: ");
-                bill[i] = new BillClass();
+                bill[i] = new Bill.Bill();
                 bill[i].CreateBill();
                 Console.Clear();
             }

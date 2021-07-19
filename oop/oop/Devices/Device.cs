@@ -4,13 +4,13 @@ using System.Text;
 
 namespace oop.Devices
 {
-    abstract class DevicesClass
+    abstract class Device
     {
-        protected string id;
-        protected string name;
-        protected string producer;
-        protected int amount;
-        protected int price;
+        protected string id { get; set; }
+        protected string name { get; set; }
+        protected string producer { get; set; }
+        protected int amount { get; set; }
+        protected int price { get; set; }
 
         public string ID
         {
@@ -80,6 +80,7 @@ namespace oop.Devices
                 }
                 catch (Exception)
                 {
+                    Console.WriteLine("\n\t\t\t\tVui lòng nhập số lượng sản phẩm");
                     Console.Write("\n\t\t\t\tSố lượng: ");
                 }
             }
@@ -87,6 +88,8 @@ namespace oop.Devices
         }
         public abstract string getInfo();
         public abstract int totalPrice();
+
+        public abstract int setPrice();
 
     }
 }
