@@ -15,7 +15,10 @@ namespace oop.Devices.AirConditioners.AirConditionerTypes
                 {
                     return true;
                 }
-                else { return false; }
+                else 
+                { 
+                    return false; 
+                }
             }
         }
 
@@ -28,7 +31,10 @@ namespace oop.Devices.AirConditioners.AirConditionerTypes
                 {
                     return true;
                 }
-                else { return false; }
+                else 
+                { 
+                    return false; 
+                }
             }
         }
 
@@ -41,7 +47,10 @@ namespace oop.Devices.AirConditioners.AirConditionerTypes
                 {
                     return true;
                 }
-                else { return false; }
+                else 
+                { 
+                    return false; 
+                }
             }
         }
 

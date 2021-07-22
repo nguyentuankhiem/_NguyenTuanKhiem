@@ -26,7 +26,6 @@ namespace oop.Customers
             this.address = Console.ReadLine();
             Console.Write("\n\t\tSố điện thoại: ");
 
-            //this.pnumber = int.Parse(Console.ReadLine()); 
             while (true)
             {
                 try
@@ -45,7 +44,6 @@ namespace oop.Customers
 
         public string getInfo()
         {
-            //Console.WriteLine("\nCustomer Info: ");
             return $"\n\tMã: {this.ID}" +
             $"\n\tTên: {this.Name}" +
             $"\n\tĐịa chỉ: {this.Address}" +

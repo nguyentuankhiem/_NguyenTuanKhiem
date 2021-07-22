@@ -18,7 +18,6 @@ namespace oop.Devices.AirConditioners.AirConditionerTypes
                 else { return false; }
             }
         }
-
         public void insertInverter()
         {
             Console.Write("\n\t\t\t\tInverter (1-có, 2-không): ");
@@ -66,7 +65,10 @@ namespace oop.Devices.AirConditioners.AirConditionerTypes
             {
                 this.price = 1500;
             }
-            else { this.price = 1000; }
+            else 
+            { 
+                this.price = 1000; 
+            }
             return this.price;
         }
         public override int totalPrice()
