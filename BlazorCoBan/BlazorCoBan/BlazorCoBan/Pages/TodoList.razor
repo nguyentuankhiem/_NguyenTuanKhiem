@@ -1,0 +1,98 @@
+﻿@page "/todolist" 
+
+<style>
+    th {
+        text-align:center;
+    }
+
+    .sub {
+        background-color:black;
+        color:white;
+    }
+    .sub:hover {
+        background-color:white;
+        color:black;
+    }
+</style>
+<h3>TodoList</h3>
+
+<div class="form-group">
+    <label for="title">Title: </label>
+    <input type="text" @bind="newItem" />
+
+    <button type="submit" @onclick="Add" class="btn sub">Add</button>
+    <button type="submit" @onclick="Clear" class="btn sub">Clear all</button>
+    <button type="submit" @onclick="Save" class="btn sub">Save</button>
+    <i>@announce</i>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Complete</th>
+            <th>Remove</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in TDL)
+         {
+            <tr>
+                <td style="@(item.IsComplete ? "text-decoration: line-through" : "")">@item.Title</td>
+                <td style="text-align:center">
+                    <input type="checkbox" @bind="item.IsComplete" @onclick="(() => announce = string.Empty)" />
+                </td>
+                <td style="text-align:center">
+                    <input type="checkbox" @onclick="(() => Remove(item))" />
+                </td>
+            </tr>
+         }
+    </tbody>
+</table>
+
+@code {
+    public string announce { get; set; }
+
+    public string newItem { get; set; }
+
+    public List<TodoItem> TDL = new List<TodoItem>();
+
+    public void Add()
+    {
+        if (!string.IsNullOrEmpty(newItem))
+        {
+            TDL.Add(new TodoItem(title: newItem));
+            newItem = string.Empty;
+            announce = string.Empty;
+        }
+    }
+
+    public void Remove(TodoItem item)
+    {
+        TDL.Remove(item);
+        announce = string.Empty;
+    }
+
+    public void Clear()
+    {
+        TDL.Clear();
+        announce = string.Empty;
+    }
+
+    public void Save()
+    {
+        string path = "Data//tdl.json";
+        if (TDL.Count > 0)
+        {
+            var json = JsonSerializer.Serialize(TDL);
+            File.WriteAllText(path, json);
+            announce = "Save successfully to the folder Data";
+        }
+        else
+        {
+            announce = "No data to save";
+        }
+    }
+
+
+}

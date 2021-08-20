@@ -4,7 +4,7 @@
 #pragma warning disable 0649
 #pragma warning disable 0169
 
-namespace BlazorCoBan
+namespace BlazorCoBan.Pages
 {
     #line hidden
     using System;
@@ -103,13 +103,76 @@ using BlazorCoBan.Shared;
 #line default
 #line hidden
 #nullable disable
-    public partial class _Imports : System.Object
+    [Microsoft.AspNetCore.Components.RouteAttribute("/pomodoro")]
+    public partial class Pomodoro : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
-        protected void Execute()
+        protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
         {
         }
         #pragma warning restore 1998
+#nullable restore
+#line 39 "D:\maico\ntk_repo\BlazorCoBan\BlazorCoBan\BlazorCoBan\Pages\Pomodoro.razor"
+       
+    private System.Timers.Timer timer;
+
+    private int min = 25;
+    private int sec = 00;
+    private int count = 0;
+
+    public void Count(object source, System.Timers.ElapsedEventArgs e)
+    {
+        if (sec > 0)
+        {
+            sec -= 1;
+            if (sec == 0 && min % 5 == 0)
+            {
+                count += 1;
+            }
+        }
+        else if (sec == 0 && min > 0)
+        {
+            min -= 1;
+            sec = 59;
+            if (min == 0)
+            {
+                sec = 0;
+                timer.Stop();
+                timer.Enabled = false;
+            }
+        }
+        InvokeAsync(StateHasChanged);
+    }
+
+    public void Start()
+    {
+        if (timer != null)
+        {
+            timer.Dispose();
+        }
+        timer = new System.Timers.Timer(1000);
+        timer.Elapsed += Count;
+        timer.Enabled = true;
+        timer.AutoReset = true;
+    }
+
+    public void Stop()
+    {
+        timer.Stop();
+        timer.Enabled = false;
+    }
+
+    public void Reset()
+    {
+        sec = 00;
+        min = 25;
+        count = 0;
+        timer.Stop();
+    }
+
+#line default
+#line hidden
+#nullable disable
     }
 }
 #pragma warning restore 1591

@@ -4,7 +4,7 @@
 #pragma warning disable 0649
 #pragma warning disable 0169
 
-namespace BlazorCoBan
+namespace BlazorCoBan.Pages
 {
     #line hidden
     using System;
@@ -103,13 +103,65 @@ using BlazorCoBan.Shared;
 #line default
 #line hidden
 #nullable disable
-    public partial class _Imports : System.Object
+    [Microsoft.AspNetCore.Components.RouteAttribute("/todolist")]
+    public partial class TodoList : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
-        protected void Execute()
+        protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
         {
         }
         #pragma warning restore 1998
+#nullable restore
+#line 53 "D:\maico\ntk_repo\BlazorCoBan\BlazorCoBan\BlazorCoBan\Pages\TodoList.razor"
+       
+    public string announce { get; set; }
+
+    public string newItem { get; set; }
+
+    public List<TodoItem> TDL = new List<TodoItem>();
+
+    public void Add()
+    {
+        if (!string.IsNullOrEmpty(newItem))
+        {
+            TDL.Add(new TodoItem(title: newItem));
+            newItem = string.Empty;
+            announce = string.Empty;
+        }
+    }
+
+    public void Remove(TodoItem item)
+    {
+        TDL.Remove(item);
+        announce = string.Empty;
+    }
+
+    public void Clear()
+    {
+        TDL.Clear();
+        announce = string.Empty;
+    }
+
+    public void Save()
+    {
+        string path = "Data//tdl.json";
+        if (TDL.Count > 0)
+        {
+            var json = JsonSerializer.Serialize(TDL);
+            File.WriteAllText(path, json);
+            announce = "Save successfully to the folder Data";
+        }
+        else
+        {
+            announce = "No data to save";
+        }
+    }
+
+
+
+#line default
+#line hidden
+#nullable disable
     }
 }
 #pragma warning restore 1591
