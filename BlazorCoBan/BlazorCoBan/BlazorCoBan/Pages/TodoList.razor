@@ -59,7 +59,7 @@
 
     public void Add()
     {
-        if (!string.IsNullOrEmpty(newItem))
+        if (!string.IsNullOrWhiteSpace(newItem))
         {
             TDL.Add(new TodoItem(title: newItem));
             newItem = string.Empty;
