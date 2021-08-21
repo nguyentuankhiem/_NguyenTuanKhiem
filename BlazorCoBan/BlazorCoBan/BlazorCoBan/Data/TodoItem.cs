@@ -16,5 +16,12 @@ namespace BlazorCoBan.Data
         {
             this.Title = title;
         }
+
+        public void ClearAll(List<TodoItem> lst)
+        {
+            lst.Clear();
+        }
     }
+
+    
 }

@@ -6,12 +6,12 @@
 
 <div class="form-group">
     <label for="title">Title: </label>
-    <input type="text" @bind="_newItem" @onkeyup="EnterCatch" />
+    <input type="text" @bind="newItem" @onkeyup="EnterCatch" />
 
     <button type="submit" @onclick="Add" class="btn btn-outline-dark">Add</button>
     <button type="submit" @onclick="Clear" class="btn btn-outline-dark">Clear all</button>
     <button type="submit" @onclick="Save" class="btn btn-outline-dark">Save</button>
-    <i>@_announce</i>
+    <i>@Announce</i>
 </div>
 
 <table class="table">
@@ -23,12 +23,12 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in _todoList)
+        @foreach (var item in todoList)
          {
             <tr style="text-align:center">
                 <td style="text-align:left; @(item.IsComplete ? "text-decoration: line-through" : "")">@item.Title</td>
                 <td style="text-align:center">
-                    <input type="checkbox" @bind="item.IsComplete" @onclick="(() => _announce = string.Empty)" />
+                    <input type="checkbox" @bind="item.IsComplete" @onclick="(() => Announce = string.Empty)" />
                 </td>
                 <td style="text-align:center">
                     <button type="submit" class="btn btn-outline-dark" @onclick="(() => Remove(item))">Remove</button>
@@ -39,61 +39,72 @@
 </table>
 
 @code {
+    private bool isSaved { get; set; } = false;
 
-    private readonly string _path = "Data//tdl.json";
+    private readonly string pathSaveToDoList = "Data//tdl.json";
 
-    public string _announce { get; set; }
+    public string Announce { get; set; }
 
-    public string _newItem { get; set; }
+    public string newItem { get; set; }
 
-    private List<TodoItem> _todoList = new List<TodoItem>();
+    private List<TodoItem> todoList = new List<TodoItem>();
 
     public List<TodoItem> GetData()
     {
-        if (File.Exists(_path))
+        if (File.Exists(pathSaveToDoList))
         {
-            using var file = File.OpenText(_path);
+            using var file = File.OpenText(pathSaveToDoList);
             var serializer = new JsonSerializer();
-            _todoList = serializer.Deserialize(file, typeof(List<TodoItem>)) as List<TodoItem>;
+            todoList = serializer.Deserialize(file, typeof(List<TodoItem>)) as List<TodoItem>;
         }
 
-        return _todoList;
+        return todoList;
     }
 
     protected override void OnInitialized()
     {
-        _todoList = GetData();
+        todoList = GetData();
     }
 
     public void Add()
     {
-        if (!string.IsNullOrWhiteSpace(_newItem))
+        if (!string.IsNullOrWhiteSpace(newItem))
         {
-            _todoList.Add(new TodoItem(title: _newItem));
-            _newItem = string.Empty;
-            _announce = string.Empty;
+            todoList.Add(new TodoItem(title: newItem));
+            newItem = string.Empty;
+            Announce = string.Empty;
+        }
+    }
+
+    public void Clear()
+    {
+        if (isSaved)
+        {
+            todoList.Clear();
+            Announce = "Save again to clear all data in Json file";
+        }
+        else
+        {
+            Announce = "Save before clear";
         }
     }
 
     public void Remove(TodoItem item)
     {
-        _todoList.Remove(item);
-        _announce = string.Empty;
+        todoList.Remove(item);
+        Announce = string.Empty;
     }
 
-    public void Clear()
-    {
-        _todoList.Clear();
-        File.Delete(_path);
-        _announce = string.Empty;
-    }
 
     public void Save()
     {
-        using var file = File.CreateText(_path);
+        using var file = File.CreateText(pathSaveToDoList);
         var serializer = new JsonSerializer();
-        serializer.Serialize(file, _todoList);
-        _announce = "Save successfully to the folder Data";
+        serializer.Serialize(file, todoList);
+        isSaved = true;
+        Announce = "Save successfully to the folder Data";
+
+
     }
 
     public void EnterCatch(KeyboardEventArgs eventArgs)
