@@ -10,6 +10,8 @@ namespace BlazorCoBan.Data
         public string Title { get; set; }
         public bool IsComplete { get; set; } = false;
 
+        public DateTime DateCreated { get; set; } = DateTime.Now;
+
         public TodoItem(string title)
         {
             this.Title = title;

@@ -1,49 +1,37 @@
 ﻿@page "/todolist" 
 
-<style>
-    th {
-        text-align:center;
-    }
+@using Newtonsoft.Json;
 
-    .sub {
-        background-color:black;
-        color:white;
-    }
-    .sub:hover {
-        background-color:white;
-        color:black;
-    }
-</style>
 <h3>TodoList</h3>
 
 <div class="form-group">
     <label for="title">Title: </label>
-    <input type="text" @bind="newItem" />
+    <input type="text" @bind="_newItem" @onkeyup="EnterCatch" />
 
-    <button type="submit" @onclick="Add" class="btn sub">Add</button>
-    <button type="submit" @onclick="Clear" class="btn sub">Clear all</button>
-    <button type="submit" @onclick="Save" class="btn sub">Save</button>
-    <i>@announce</i>
+    <button type="submit" @onclick="Add" class="btn btn-outline-dark">Add</button>
+    <button type="submit" @onclick="Clear" class="btn btn-outline-dark">Clear all</button>
+    <button type="submit" @onclick="Save" class="btn btn-outline-dark">Save</button>
+    <i>@_announce</i>
 </div>
 
 <table class="table">
     <thead>
-        <tr>
+        <tr style="text-align:center">
             <th>Title</th>
             <th>Complete</th>
             <th>Remove</th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in TDL)
+        @foreach (var item in _todoList)
          {
-            <tr>
-                <td style="@(item.IsComplete ? "text-decoration: line-through" : "")">@item.Title</td>
+            <tr style="text-align:center">
+                <td style="text-align:left; @(item.IsComplete ? "text-decoration: line-through" : "")">@item.Title</td>
                 <td style="text-align:center">
-                    <input type="checkbox" @bind="item.IsComplete" @onclick="(() => announce = string.Empty)" />
+                    <input type="checkbox" @bind="item.IsComplete" @onclick="(() => _announce = string.Empty)" />
                 </td>
                 <td style="text-align:center">
-                    <input type="checkbox" @onclick="(() => Remove(item))" />
+                    <button type="submit" class="btn btn-outline-dark" @onclick="(() => Remove(item))">Remove</button>
                 </td>
             </tr>
          }
@@ -51,48 +39,69 @@
 </table>
 
 @code {
-    public string announce { get; set; }
 
-    public string newItem { get; set; }
+    private readonly string _path = "Data//tdl.json";
 
-    public List<TodoItem> TDL = new List<TodoItem>();
+    public string _announce { get; set; }
+
+    public string _newItem { get; set; }
+
+    private List<TodoItem> _todoList = new List<TodoItem>();
+
+    public List<TodoItem> GetData()
+    {
+        if (File.Exists(_path))
+        {
+            using var file = File.OpenText(_path);
+            var serializer = new JsonSerializer();
+            _todoList = serializer.Deserialize(file, typeof(List<TodoItem>)) as List<TodoItem>;
+        }
+
+        return _todoList;
+    }
+
+    protected override void OnInitialized()
+    {
+        _todoList = GetData();
+    }
 
     public void Add()
     {
-        if (!string.IsNullOrWhiteSpace(newItem))
+        if (!string.IsNullOrWhiteSpace(_newItem))
         {
-            TDL.Add(new TodoItem(title: newItem));
-            newItem = string.Empty;
-            announce = string.Empty;
+            _todoList.Add(new TodoItem(title: _newItem));
+            _newItem = string.Empty;
+            _announce = string.Empty;
         }
     }
 
     public void Remove(TodoItem item)
     {
-        TDL.Remove(item);
-        announce = string.Empty;
+        _todoList.Remove(item);
+        _announce = string.Empty;
     }
 
     public void Clear()
     {
-        TDL.Clear();
-        announce = string.Empty;
+        _todoList.Clear();
+        File.Delete(_path);
+        _announce = string.Empty;
     }
 
     public void Save()
     {
-        string path = "Data//tdl.json";
-        if (TDL.Count > 0)
-        {
-            var json = JsonSerializer.Serialize(TDL);
-            File.WriteAllText(path, json);
-            announce = "Save successfully to the folder Data";
-        }
-        else
-        {
-            announce = "No data to save";
-        }
+        using var file = File.CreateText(_path);
+        var serializer = new JsonSerializer();
+        serializer.Serialize(file, _todoList);
+        _announce = "Save successfully to the folder Data";
     }
 
+    public void EnterCatch(KeyboardEventArgs eventArgs)
+    {
+        if (eventArgs.Key == "Enter")
+        {
+            Add();
+        }
+    }
 
 }
