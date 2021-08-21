@@ -3,72 +3,72 @@
 <h3>Pomodoro</h3>
 
 <center>
-    <h2>@_min : @_sec </h2>
+    <h2>@min : @sec </h2>
 
     <div class="form-group">
-        <button type="submit" class="btn btn-outline-success" @onclick="Start">Start</button>
-        <button type="submit" class="btn btn-outline-danger" @onclick="Stop">Stop</button>
-        <button type="submit" class="btn btn-outline-info" @onclick="Reset">Reset</button>
+        <button type="submit" class="btn btn-outline-success" @onclick="StartAsync">Start</button>
+        <button type="submit" class="btn btn-outline-danger" @onclick="StopAsync">Stop</button>
+        <button type="submit" class="btn btn-outline-info" @onclick="ResetAsync">Reset</button>
     </div>
 </center>
 
-<i>count every five minutes: @_count</i>
+<i>count every five minutes: @count</i>
 
 
 @code {
-    private System.Timers.Timer _timer;
+    private System.Timers.Timer timer;
 
-    private int _min = 25;
-    private int _sec = 00;
-    private int _count = 0;
+    private int min = 25;
+    private int sec = 00;
+    private int count = 0;
 
-    public void Count(object source, System.Timers.ElapsedEventArgs e)
+    public async void CountAsync(object source, System.Timers.ElapsedEventArgs e)
     {
-        if (_sec > 0)
+        if (sec > 0)
         {
-            _sec -= 1;
-            if (_sec == 0 && _min % 5 == 0)
+            sec -= 1;
+            if (sec == 0 && min % 5 == 0)
             {
-                _count += 1;
+                count += 1;
             }
         }
-        else if (_sec == 0 && _min > 0)
+        else if (sec == 0 && min > 0)
         {
-            _min -= 1;
-            _sec = 59;
-            if (_min == 0)
+            min -= 1;
+            sec = 59;
+            if (min == 0)
             {
-                _sec = 0;
-                _timer.Stop();
-                _timer.Enabled = false;
+                sec = 0;
+                timer.Stop();
+                timer.Enabled = false;
             }
         }
-        InvokeAsync(StateHasChanged);
+        await InvokeAsync(StateHasChanged);
     }
 
-    public void Start()
+    public async Task StartAsync()
     {
-        if (_timer != null)
+        if (timer != null)
         {
-            _timer.Dispose();
+            timer.Dispose();
         }
-        _timer = new System.Timers.Timer(1000);
-        _timer.Elapsed += Count;
-        _timer.Enabled = true;
-        _timer.AutoReset = true;
+        timer = new System.Timers.Timer(1000);
+        timer.Elapsed += CountAsync;
+        timer.Enabled = true;
+        timer.AutoReset = true;
     }
 
-    public void Stop()
+    public async Task StopAsync()
     {
-        _timer.Stop();
-        _timer.Enabled = false;
+        timer.Stop();
+        timer.Enabled = false;
     }
 
-    public void Reset()
+    public async Task ResetAsync()
     {
-        _sec = 00;
-        _min = 25;
-        _count = 0;
-        _timer.Stop();
+        sec = 00;
+        min = 25;
+        count = 0;
+        timer.Stop();
     }
 }
