@@ -6,7 +6,7 @@
 
 <div class="form-group">
     <label for="title">Title: </label>
-    <input type="text" @bind="newItem" @onkeyup="EnterCatch" />
+    <input type="text" @bind="NewItem" @onkeyup="EnterCatch" />
 
     <button type="submit" @onclick="Add" class="btn btn-outline-dark">Add</button>
     <button type="submit" @onclick="Clear" class="btn btn-outline-dark">Clear all</button>
@@ -23,7 +23,7 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in todoList)
+        @foreach (var item in _todoList)
          {
             <tr style="text-align:center">
                 <td style="text-align:left; @(item.IsComplete ? "text-decoration: line-through" : "")">@item.Title</td>
@@ -39,48 +39,48 @@
 </table>
 
 @code {
-    private bool isSaved { get; set; } = false;
+    private bool _isSaved { get; set; } = false;
 
-    private readonly string pathSaveToDoList = "Data//tdl.json";
+    private readonly string _pathSaveToDoList = "Data//tdl.json";
 
     public string Announce { get; set; }
 
-    public string newItem { get; set; }
+    public string NewItem { get; set; }
 
-    private List<TodoItem> todoList = new List<TodoItem>();
+    private List<TodoItem> _todoList = new List<TodoItem>();
 
     public List<TodoItem> GetData()
     {
-        if (File.Exists(pathSaveToDoList))
+        if (File.Exists(_pathSaveToDoList))
         {
-            using var file = File.OpenText(pathSaveToDoList);
+            using var file = File.OpenText(_pathSaveToDoList);
             var serializer = new JsonSerializer();
-            todoList = serializer.Deserialize(file, typeof(List<TodoItem>)) as List<TodoItem>;
+            _todoList = serializer.Deserialize(file, typeof(List<TodoItem>)) as List<TodoItem>;
         }
 
-        return todoList;
+        return _todoList;
     }
 
     protected override void OnInitialized()
     {
-        todoList = GetData();
+        _todoList = GetData();
     }
 
     public void Add()
     {
-        if (!string.IsNullOrWhiteSpace(newItem))
+        if (!string.IsNullOrWhiteSpace(NewItem))
         {
-            todoList.Add(new TodoItem(title: newItem));
-            newItem = string.Empty;
+            _todoList.Add(new TodoItem(title: NewItem));
+            NewItem = string.Empty;
             Announce = string.Empty;
         }
     }
 
     public void Clear()
     {
-        if (isSaved)
+        if (_isSaved)
         {
-            todoList.Clear();
+            _todoList.Clear();
             Announce = "Save again to clear all data in Json file";
         }
         else
@@ -91,17 +91,17 @@
 
     public void Remove(TodoItem item)
     {
-        todoList.Remove(item);
+        _todoList.Remove(item);
         Announce = string.Empty;
     }
 
 
     public void Save()
     {
-        using var file = File.CreateText(pathSaveToDoList);
+        using var file = File.CreateText(_pathSaveToDoList);
         var serializer = new JsonSerializer();
-        serializer.Serialize(file, todoList);
-        isSaved = true;
+        serializer.Serialize(file, _todoList);
+        _isSaved = true;
         Announce = "Save successfully to the folder Data";
 
 

@@ -3,7 +3,7 @@
 <h3>Pomodoro</h3>
 
 <center>
-    <h2>@min : @sec </h2>
+    <h2>@_min : @_sec </h2>
 
     <div class="form-group">
         <button type="submit" class="btn btn-outline-success" @onclick="StartAsync">Start</button>
@@ -12,35 +12,35 @@
     </div>
 </center>
 
-<i>count every five minutes: @count</i>
+<i>count every five minutes: @_count</i>
 
 
 @code {
-    private System.Timers.Timer timer;
+    private System.Timers.Timer _timer;
 
-    private int min = 25;
-    private int sec = 00;
-    private int count = 0;
+    private int _min = 25;
+    private int _sec = 00;
+    private int _count = 0;
 
-    public async void CountAsync(object source, System.Timers.ElapsedEventArgs e)
+    public async void CountTimeAsync(object source, System.Timers.ElapsedEventArgs e)
     {
-        if (sec > 0)
+        if (_sec > 0)
         {
-            sec -= 1;
-            if (sec == 0 && min % 5 == 0)
+            _sec -= 1;
+            if (_sec == 0 && _min % 5 == 0)
             {
-                count += 1;
+                _count += 1;
             }
         }
-        else if (sec == 0 && min > 0)
+        else if (_sec == 0 && _min > 0)
         {
-            min -= 1;
-            sec = 59;
-            if (min == 0)
+            _min -= 1;
+            _sec = 59;
+            if (_min == 0)
             {
-                sec = 0;
-                timer.Stop();
-                timer.Enabled = false;
+                _sec = 0;
+                _timer.Stop();
+                _timer.Enabled = false;
             }
         }
         await InvokeAsync(StateHasChanged);
@@ -48,27 +48,27 @@
 
     public async Task StartAsync()
     {
-        if (timer != null)
+        if (_timer != null)
         {
-            timer.Dispose();
+            _timer.Dispose();
         }
-        timer = new System.Timers.Timer(1000);
-        timer.Elapsed += CountAsync;
-        timer.Enabled = true;
-        timer.AutoReset = true;
+        _timer = new System.Timers.Timer(1000);
+        _timer.Elapsed += CountTimeAsync;
+        _timer.Enabled = true;
+        _timer.AutoReset = true;
     }
 
     public async Task StopAsync()
     {
-        timer.Stop();
-        timer.Enabled = false;
+        _timer.Stop();
+        _timer.Enabled = false;
     }
 
     public async Task ResetAsync()
     {
-        sec = 00;
-        min = 25;
-        count = 0;
-        timer.Stop();
+        _sec = 00;
+        _min = 25;
+        _count = 0;
+        _timer.Stop();
     }
 }
