@@ -1,0 +1,24 @@
+﻿@page "/products"
+@inherits ProductBase 
+
+<button class="btn btn-outline-info" @onclick="StartAdd">Add new product</button>
+<input type="text" @bind="SearchString" placeholder="search something" />
+
+
+@if (addButton)
+{
+    <AddnEdit OnSubmitted="AddNewProduct" OnCancelled="CancelAdd">
+        Add new product
+    </AddnEdit>
+}
+else
+{
+    <div class="wrapper">
+        @foreach (var item in Products)
+         {
+
+            <ShowProduct Prod="item"></ShowProduct>
+         }
+    </div>
+
+}

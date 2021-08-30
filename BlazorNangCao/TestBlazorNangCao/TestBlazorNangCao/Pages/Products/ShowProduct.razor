@@ -1,0 +1,16 @@
+﻿
+<a href="/products/@Prod.ID" class="text-decoration-none text-black-50">
+    <div class="product">
+        <img src="img/@Prod.ImgSrc" class="img" alt="@Prod.ID" />
+        <p>@Prod.Title</p>
+        <p><b>Giá: @Prod.Price.ToString("0.000 đ")</b></p>
+    </div>
+</a>
+
+
+@code {
+    [Parameter]
+    public ProductItem Prod { get; set; }
+
+
+}

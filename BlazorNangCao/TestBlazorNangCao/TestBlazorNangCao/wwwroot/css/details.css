@@ -1,0 +1,19 @@
+﻿
+.details_card {
+    width:575px;
+    border:1px;
+    float:left;
+    margin:10px;
+    padding:10px;
+}
+.img_details {
+    height: 450px;
+    width: 450px;
+}
+
+.details_wrapper {
+    width: 1216px;
+    padding: 10px;
+    height: 500px;
+    border: 1px;
+}

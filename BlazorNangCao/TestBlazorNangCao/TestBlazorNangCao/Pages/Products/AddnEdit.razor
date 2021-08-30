@@ -1,0 +1,71 @@
+﻿
+
+<div class="card p-3">
+    <h3 class="text-center">@ChildContent</h3>
+    <button class="btn btn-dark" type="submit" @onclick="OnCancelled">Cancel</button>
+    <EditForm Model="CurrentProd" OnValidSubmit="OnSubmitAsync">
+        <DataAnnotationsValidator></DataAnnotationsValidator>
+        <ValidationSummary></ValidationSummary>
+        <div class="form-group">
+            <label for="id">ID: </label>
+            <InputText @bind-Value="CurrentProd.ID" class="form-control"></InputText>
+        </div>
+        <div class="form-group">
+            <label for="title">Title:</label>
+            <InputText @bind-Value="CurrentProd.Title" class="form-control"></InputText>
+        </div>
+        <div class="form-group">
+            <label for="author">Author:</label>
+            <InputText @bind-Value="CurrentProd.Author" class="form-control"></InputText>
+        </div>
+        <div class="form-group">
+            <label for="year">Published Year:</label>
+            <InputNumber @bind-Value="CurrentProd.PublishedYear" class="form-control"></InputNumber>
+        </div>
+        <div class="form-group">
+            <label for="img">Image:</label>
+            <InputText @bind-Value="CurrentProd.ImgSrc" class="form-control" placeholder="just the img file name (name.jpg), sorry but you have to put that img to the folder ^^"></InputText>
+        </div>
+        <div class="form-group">
+            <label for="description">Description:</label>
+            <InputTextArea @bind-Value="CurrentProd.Description" class="form-control"></InputTextArea>
+        </div>
+        <div class="form-group">
+            <label for="pagenum">Page Number:</label>
+            <InputNumber @bind-Value="CurrentProd.PageNum" class="form-control"></InputNumber>
+        </div>
+        <div class="form-group">
+            <label for="price">Price:</label>
+            <InputNumber @bind-Value="CurrentProd.Price" class="form-control"></InputNumber>
+        </div>
+        <div class="text-center">
+            <button type="submit" class="btn btn-outline-success">Save</button>
+            <button type="reset" class="btn btn-outline-info">Reset</button>
+        </div>
+    </EditForm>
+</div>
+
+@code {
+    [Parameter]
+    public ProductItem CurrentProd { get; set; } = new ProductItem();
+
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+
+    [Parameter]
+    public EventCallback<ProductItem> OnSubmitted { get; set; }
+
+    [Parameter]
+    public EventCallback OnCancelled { get; set; }
+
+    public async Task OnSubmitAsync()
+    {
+        await OnSubmitted.InvokeAsync(CurrentProd);
+    }
+
+    public async Task OnCancelAsync()
+    {
+        await OnCancelled.InvokeAsync(EventArgs.Empty);
+    }
+
+}

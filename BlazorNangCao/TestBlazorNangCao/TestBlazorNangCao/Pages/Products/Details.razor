@@ -1,0 +1,64 @@
+﻿@page "/products/{idPath}"
+@inherits DetailsBase
+@inject IJSRuntime JSRuntime
+
+@if (EditMode)
+{
+    <AddnEdit CurrentProd="CurrentProd" OnSubmitted="UpdateEdit" OnCancelled="CancelEdit">
+        Edit Product    
+    </AddnEdit>
+}
+else
+{
+
+    <div class="details_wrapper">
+        <div class="details_card">
+            <img src="img/@CurrentProd.ImgSrc" class="img_details" />
+        </div>
+        <div class="details_card">
+            <p>
+                <h2>@CurrentProd.Title</h2>
+            </p>
+
+            <p>
+                <b>Tác giả:</b> @CurrentProd.Author｜
+                <b>Năm xuất bản:</b> @CurrentProd.PublishedYear｜
+                <b>Số trang:</b> @CurrentProd.PageNum
+            </p>
+            <h1 class="text-success">@CurrentProd.Price.ToString("0.000 đ")</h1>
+            <p><b>Chính sách đổi trả:</b> Đổi trả sản phẩm trong 30 ngày</p>
+            <p class="text-center">
+                <a class="btn btn-outline-success" href="https://www.fahasa.com" target="_blank">Mua ngay</a>
+                <button class="btn @DeleteButtonStyle" @onclick="@SaveData">@DeleteButtonString</button>
+                <button class="btn btn-outline-secondary" @onclick="ToggleEdit">Edit</button>
+                <button class="btn btn-outline-warning" @onclick="DeleteAsync">Delete</button>
+
+            </p>
+            <p class="text-justify">
+                <hr />
+                @CurrentProd.Description
+            </p>
+        </div>
+    </div>
+
+}
+
+
+
+
+@code {
+
+    public bool DeleteAnswer { get; set; }
+
+    public async Task DeleteAsync()
+    {
+        DeleteAnswer = await JSRuntime.InvokeAsync<bool>("DeleteConfirm");
+        if (DeleteAnswer)
+        {
+            _products.Remove(CurrentProd);
+            SaveData();
+            await JSRuntime.InvokeVoidAsync("RedirectToHomePage");
+        }
+
+    }
+}
