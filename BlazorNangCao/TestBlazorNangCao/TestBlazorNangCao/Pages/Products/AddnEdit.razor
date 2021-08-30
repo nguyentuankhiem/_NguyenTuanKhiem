@@ -1,11 +1,20 @@
 ﻿
 
 <div class="card p-3">
-    <h3 class="text-center">@ChildContent</h3>
-    <button class="btn btn-dark" type="submit" @onclick="OnCancelled">Cancel</button>
+    
+    <div class="card-header text-center">
+        <h3>@ChildContent</h3>
+        <button class="btn btn-outline-dark" type="submit" @onclick="OnCancelAsync">Cancel</button>
+    </div>
     <EditForm Model="CurrentProd" OnValidSubmit="OnSubmitAsync">
         <DataAnnotationsValidator></DataAnnotationsValidator>
         <ValidationSummary></ValidationSummary>
+        <br />
+        <div class="text-center">
+            <button type="submit" class="btn btn-outline-success">Save</button>
+            <button type="reset" class="btn btn-outline-info">Reset</button>
+            
+        </div>
         <div class="form-group">
             <label for="id">ID: </label>
             <InputText @bind-Value="CurrentProd.ID" class="form-control"></InputText>
@@ -24,7 +33,7 @@
         </div>
         <div class="form-group">
             <label for="img">Image:</label>
-            <InputText @bind-Value="CurrentProd.ImgSrc" class="form-control" placeholder="just the img file name (name.jpg), sorry but you have to put that img to the folder ^^"></InputText>
+            <InputText @bind-Value="CurrentProd.ImgSrc" class="form-control" placeholder="just the img file name (name.jpg), sorry but you have to put that img to the folder wwwroot/img. thank you! ^^"></InputText>
         </div>
         <div class="form-group">
             <label for="description">Description:</label>
@@ -38,10 +47,7 @@
             <label for="price">Price:</label>
             <InputNumber @bind-Value="CurrentProd.Price" class="form-control"></InputNumber>
         </div>
-        <div class="text-center">
-            <button type="submit" class="btn btn-outline-success">Save</button>
-            <button type="reset" class="btn btn-outline-info">Reset</button>
-        </div>
+
     </EditForm>
 </div>
 

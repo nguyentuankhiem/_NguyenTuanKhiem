@@ -1,9 +1,8 @@
 ﻿@page "/products"
-@inherits ProductBase 
+@inherits ProductBase
 
 <h3>Products</h3>
-<button class="btn btn-outline-info" @onclick="StartAdd">Add new product</button>
-<input type="text" @bind="SearchString" placeholder="search something" />
+
 
 
 @if (addButton)
@@ -14,12 +13,14 @@
 }
 else
 {
+    <button class="btn btn-outline-info" @onclick="StartAdd">Add new product</button>
+    <input type="text" @bind="SearchString" class="input-group-sm" placeholder="search something" />
     <div class="wrapper">
         @foreach (var item in Products)
-         {
+        {
 
             <ShowProduct Prod="item"></ShowProduct>
-         }
+        }
     </div>
 
 }

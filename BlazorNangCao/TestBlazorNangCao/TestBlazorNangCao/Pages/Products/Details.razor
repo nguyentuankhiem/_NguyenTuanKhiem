@@ -10,7 +10,7 @@
 }
 else
 {
-
+    <a href="/products" class="btn btn-outline-success">Back</a>
     <div class="details_wrapper">
         <div class="details_card">
             <img src="img/@CurrentProd.ImgSrc" class="img_details" />
@@ -31,7 +31,7 @@ else
                 <a class="btn btn-outline-success" href="https://www.fahasa.com" target="_blank">Mua ngay</a>
                 <button class="btn @DeleteButtonStyle" @onclick="@SaveData">@DeleteButtonString</button>
                 <button class="btn btn-outline-secondary" @onclick="ToggleEdit">Edit</button>
-                <button class="btn btn-outline-warning" @onclick="DeleteAsync">Delete</button>
+                <button class="btn btn-outline-danger" @onclick="DeleteAsync">Delete</button>
 
             </p>
             <p class="text-justify">
