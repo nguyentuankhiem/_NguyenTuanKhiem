@@ -1,14 +1,13 @@
 ﻿@page "/favourites"
-@inherits FavouritedProductBase
+@inherits FavouriteBase
 
-<h3>Favourited Products</h3>
+<h3>Favourite Products</h3>
 
 <input type="text" class="input-group-sm" @bind="SearchString" placeholder="search something" />
 
 <div class="wrapper">
-    @foreach (var prod in FavouritedProducts)
+    @foreach (var prod in FavouriteProducts)
     {
         <ShowProduct Prod="prod"></ShowProduct>
     }
 </div>
-
